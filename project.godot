@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="TROTTENET - the game"
+config/name="TROTTENET - the game "
 run/main_scene="res://Scenes/Titlescreen.tscn"
 
 [autoload]
