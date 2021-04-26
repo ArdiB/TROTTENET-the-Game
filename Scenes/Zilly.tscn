@@ -1,0 +1,331 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://Assets/CharacterZilly.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Zilly.gd" type="Script" id=2]
+[ext_resource path="res://Assets/GUI/Energy Bar_Over - GUI.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/Energy Bar_Process - GUI.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GUI/Energy Bar_Under - GUI.png" type="Texture" id=5]
+[ext_resource path="res://Items/CameraShake.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Zilly.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GUI/TROTTENET - Skill_Progress.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Animation.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 33, 28 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 9 )
+region = Rect2( 33, 0, 33, 28 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 9 )
+region = Rect2( 66, 0, 33, 28 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 9 )
+region = Rect2( 99, 0, 33, 28 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 9 )
+region = Rect2( 132, 0, 33, 28 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 9 )
+region = Rect2( 165, 0, 33, 28 )
+
+[sub_resource type="SpriteFrames" id=37]
+animations = [ {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.5031
+height = 8.34343
+
+[sub_resource type="Animation" id=2]
+resource_name = "air"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 18 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "drive"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 7, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "drive"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3, 7 ]
+}
+
+[sub_resource type="Animation" id=6]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 19 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "trick"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 11, 18 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "air"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "drive"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "speed_up"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "stop"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "trick"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+advance_condition = "jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+advance_condition = "moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+advance_condition = "jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+advance_condition = "moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=29]
+states/air/node = SubResource( 8 )
+states/air/position = Vector2( 602, 84.344 )
+states/drive/node = SubResource( 9 )
+states/drive/position = Vector2( 906, 230.344 )
+states/idle/node = SubResource( 10 )
+states/idle/position = Vector2( 186, 182.344 )
+states/speed_up/node = SubResource( 11 )
+states/speed_up/position = Vector2( 586, 175.344 )
+states/stop/node = SubResource( 12 )
+states/stop/position = Vector2( 594, 304.344 )
+states/trick/node = SubResource( 13 )
+states/trick/position = Vector2( 800, -3.65601 )
+transitions = [ "idle", "speed_up", SubResource( 14 ), "speed_up", "drive", SubResource( 15 ), "drive", "air", SubResource( 16 ), "air", "drive", SubResource( 17 ), "idle", "air", SubResource( 18 ), "air", "idle", SubResource( 19 ), "drive", "stop", SubResource( 20 ), "stop", "drive", SubResource( 21 ), "drive", "idle", SubResource( 22 ), "stop", "idle", SubResource( 23 ), "drive", "speed_up", SubResource( 24 ), "idle", "stop", SubResource( 25 ), "drive", "trick", SubResource( 26 ), "trick", "air", SubResource( 27 ), "trick", "drive", SubResource( 28 ) ]
+start_node = "idle"
+graph_offset = Vector2( -76, 23.344 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=30]
+
+[node name="Zilly" type="KinematicBody2D"]
+collision/safe_margin = 0.5
+script = ExtResource( 2 )
+
+[node name="SkillSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -17, 5 )
+frames = SubResource( 37 )
+frame = 5
+speed_scale = 2.5
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2, 7 )
+texture = ExtResource( 1 )
+hframes = 21
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.22087, 5.31966 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/air = SubResource( 2 )
+anims/drive = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/speed_up = SubResource( 5 )
+anims/stop = SubResource( 6 )
+anims/trick = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -50 )
+current = true
+limit_left = 0
+limit_top = -320
+editor_draw_limits = true
+
+[node name="CameraShake" parent="Camera2D" instance=ExtResource( 6 )]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 29 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 30 )
+parameters/conditions/jumping = false
+parameters/conditions/moving = false
+parameters/conditions/not_moving = false
+
+[node name="SkillTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="SkillProgress" type="TextureProgress" parent="GUI"]
+margin_left = 5.05414
+margin_top = 5.42296
+margin_right = 45.0541
+margin_bottom = 45.423
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energy under" type="TextureProgress" parent="GUI"]
+anchor_left = 0.617021
+anchor_top = -20.625
+anchor_right = 0.617021
+anchor_bottom = -20.625
+margin_left = -158.447
+margin_top = 3717.5
+margin_right = -111.447
+margin_bottom = 3725.5
+value = 100.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_under = Color( 0.494118, 0.494118, 0.494118, 1 )
+tint_progress = Color( 0.964706, 0.458824, 0.0313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energy over " type="TextureProgress" parent="GUI"]
+anchor_left = 0.617021
+anchor_top = -20.625
+anchor_right = 0.617021
+anchor_bottom = -20.625
+margin_left = -158.447
+margin_top = 3717.5
+margin_right = -111.447
+margin_bottom = 3725.5
+value = 100.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="GUI"]
+repeat = true
+playback/repeat = true
+[connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]
