@@ -15,4 +15,4 @@ func _continue():
 
 
 func _on_TweenLogo_tween_all_completed():
-	$PressEnter.visible = true
+	$Titlescreen/PressEnter.visible = true
