@@ -36,6 +36,17 @@ position = Vector2( 161.027, 90.2406 )
 scale = Vector2( 0.61, 0.61 )
 texture = ExtResource( 1 )
 
+<<<<<<< Updated upstream
+=======
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MarginContainer"]
+position = Vector2( 0, -39 )
+scale = Vector2( 0.61, 0.61 )
+frames = SubResource( 3 )
+frame = 1
+speed_scale = 0.4
+playing = true
+
+>>>>>>> Stashed changes
 [node name="Logo" type="Sprite" parent="."]
 position = Vector2( 160, -120 )
 scale = Vector2( 0.61, 0.61 )
