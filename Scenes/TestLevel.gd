@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var coin_label: Label = $GUI/VBoxContainer/Coin_label
 
 var character 
 var time = 0

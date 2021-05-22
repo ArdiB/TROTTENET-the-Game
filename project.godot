@@ -10,13 +10,13 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="TROTTENET - the game "
 run/main_scene="res://Scenes/Titlescreen.tscn"
+config/icon="res://Assets/Logo.png"
 
 [autoload]
 
@@ -100,4 +100,5 @@ Skill={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

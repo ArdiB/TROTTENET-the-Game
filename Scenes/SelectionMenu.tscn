@@ -120,6 +120,8 @@ texture_hover = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Character R" to="." method="_on_Character_R_pressed"]
 [connection signal="pressed" from="Character L" to="." method="_on_Character_L_pressed"]

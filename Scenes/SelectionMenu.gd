@@ -53,3 +53,8 @@ func _on_Start_pressed():
 		}
 		if level == 0:
 			SceneLoader.goto_scene("res://Scenes/TestLevel.tscn", properties)
+		
+		
+		
+func _on_Options_pressed():
+	SceneLoader.goto_scene("res://Scenes/Options.tscn")

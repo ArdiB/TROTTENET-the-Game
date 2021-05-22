@@ -10,9 +10,11 @@ func _process(delta):
 	
 func _continue():
 	if Input. is_action_just_pressed("ACCEPT"):
+		
 		SceneLoader.goto_scene("res://Scenes/SelectionMenu.tscn")
 		#get_tree(). change_scene("res://Scenes/TestLevel.tscn")
 
 
 func _on_TweenLogo_tween_all_completed():
+	$Camera2D/CameraShake._start()
 	$Titlescreen/PressEnter.visible = true

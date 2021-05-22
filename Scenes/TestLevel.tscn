@@ -1,6 +1,7 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Assets/TROTTENET - Tileset 01.png" type="Texture" id=1]
+[ext_resource path="res://Assets/TROTTENET - Background_Cave_Layer3.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/TestLevel.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Retro Gaming.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=5]
@@ -13,6 +14,8 @@
 [ext_resource path="res://Items/Deer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Items/Bridge.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/TROTTENET - Crystals.png" type="Texture" id=14]
+[ext_resource path="res://Assets/TROTTENET - Background_Cave_Layer1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/TROTTENET - Background_Cave_Layer2.png" type="Texture" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -413,11 +416,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 2/z_index = 0
 
 [sub_resource type="DynamicFont" id=39]
-size = 8
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=40]
-size = 8
+size = 10
 font_data = ExtResource( 4 )
 
 [node name="TestLevel" type="Node2D" groups=[
@@ -460,29 +459,19 @@ frame = 3
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
-margin_left = 41.0
+margin_left = 40.0
 margin_top = 15.0
-margin_right = 91.0
-margin_bottom = 55.0
+margin_right = 90.0
+margin_bottom = 45.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Timer" type="Label" parent="GUI/VBoxContainer"]
 margin_right = 50.0
-margin_bottom = 11.0
+margin_bottom = 13.0
 custom_fonts/font = SubResource( 39 )
 text = "Time: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Coin_label" type="Label" parent="GUI/VBoxContainer"]
-margin_top = 15.0
-margin_right = 50.0
-margin_bottom = 26.0
-custom_fonts/font = SubResource( 40 )
-text = "Coins: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -507,6 +496,31 @@ position = Vector2( 766.222, -183.127 )
 [node name="Coin6" parent="Coins" instance=ExtResource( 5 )]
 position = Vector2( 270.154, -15.3825 )
 
+[node name="CaveBackground" type="ParallaxBackground" parent="."]
+
+[node name="Cave3" type="ParallaxLayer" parent="CaveBackground"]
+motion_mirroring = Vector2( 600, 0 )
+
+[node name="Sprite" type="Sprite" parent="CaveBackground/Cave3"]
+position = Vector2( 0, 61.5 )
+texture = ExtResource( 2 )
+
+[node name="Cave2" type="ParallaxLayer" parent="CaveBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 600, 0 )
+
+[node name="Sprite" type="Sprite" parent="CaveBackground/Cave2"]
+position = Vector2( 0, 61.5 )
+texture = ExtResource( 16 )
+
+[node name="Cave1" type="ParallaxLayer" parent="CaveBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 600, 0 )
+
+[node name="Sprite" type="Sprite" parent="CaveBackground/Cave1"]
+position = Vector2( 0, 61.5 )
+texture = ExtResource( 15 )
+
 [node name="Forest Background" type="Node2D" parent="."]
 
 [node name="Layer 4" type="ParallaxBackground" parent="Forest Background"]
@@ -515,6 +529,7 @@ position = Vector2( 270.154, -15.3825 )
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Sprite" type="Sprite" parent="Forest Background/Layer 4/ParallaxLayer"]
+position = Vector2( -0.25, -0.25 )
 texture = ExtResource( 8 )
 centered = false
 offset = Vector2( 0, -325 )
@@ -552,13 +567,15 @@ texture = ExtResource( 9 )
 centered = false
 offset = Vector2( 0, -325 )
 
-[node name="Ramp" parent="." instance=ExtResource( 10 )]
+[node name="Ramps" type="Node2D" parent="."]
+
+[node name="Ramp" parent="Ramps" instance=ExtResource( 10 )]
 position = Vector2( 528, -24 )
 
-[node name="Ramp2" parent="." instance=ExtResource( 10 )]
+[node name="Ramp2" parent="Ramps" instance=ExtResource( 10 )]
 position = Vector2( 1136, -88 )
 
-[node name="Ramp3" parent="." instance=ExtResource( 10 )]
+[node name="Ramp3" parent="Ramps" instance=ExtResource( 10 )]
 position = Vector2( 3710.6, 136 )
 
 [node name="Bridge" parent="." instance=ExtResource( 13 )]
