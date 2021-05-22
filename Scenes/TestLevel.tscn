@@ -496,73 +496,64 @@ position = Vector2( 766.222, -183.127 )
 [node name="Coin6" parent="Coins" instance=ExtResource( 5 )]
 position = Vector2( 270.154, -15.3825 )
 
-[node name="CaveBackground" type="ParallaxBackground" parent="."]
+[node name="ParralaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Cave3" type="ParallaxLayer" parent="CaveBackground"]
+[node name="Cave1" type="ParallaxLayer" parent="ParralaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 600, 0 )
 
-[node name="Sprite" type="Sprite" parent="CaveBackground/Cave3"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Cave1"]
 position = Vector2( 0, 61.5 )
 texture = ExtResource( 2 )
 
-[node name="Cave2" type="ParallaxLayer" parent="CaveBackground"]
+[node name="Cave2" type="ParallaxLayer" parent="ParralaxBackground"]
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 600, 0 )
 
-[node name="Sprite" type="Sprite" parent="CaveBackground/Cave2"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Cave2"]
 position = Vector2( 0, 61.5 )
 texture = ExtResource( 16 )
 
-[node name="Cave1" type="ParallaxLayer" parent="CaveBackground"]
+[node name="Cave3" type="ParallaxLayer" parent="ParralaxBackground"]
 motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 600, 0 )
 
-[node name="Sprite" type="Sprite" parent="CaveBackground/Cave1"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Cave3"]
 position = Vector2( 0, 61.5 )
 texture = ExtResource( 15 )
 
-[node name="Forest Background" type="Node2D" parent="."]
-
-[node name="Layer 4" type="ParallaxBackground" parent="Forest Background"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Forest Background/Layer 4"]
+[node name="Forest1" type="ParallaxLayer" parent="ParralaxBackground"]
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Sprite" type="Sprite" parent="Forest Background/Layer 4/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Forest1"]
 position = Vector2( -0.25, -0.25 )
 texture = ExtResource( 8 )
 centered = false
 offset = Vector2( 0, -325 )
 
-[node name="Layer 3" type="ParallaxBackground" parent="Forest Background"]
-scroll_base_scale = Vector2( 0.2, 1 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Forest Background/Layer 3"]
+[node name="Forest2" type="ParallaxLayer" parent="ParralaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Sprite" type="Sprite" parent="Forest Background/Layer 3/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Forest2"]
 texture = ExtResource( 6 )
 centered = false
 offset = Vector2( 0, -325 )
 
-[node name="Layer 2" type="ParallaxBackground" parent="Forest Background"]
-scroll_base_scale = Vector2( 0.4, 1 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Forest Background/Layer 2"]
+[node name="Forest3" type="ParallaxLayer" parent="ParralaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Sprite" type="Sprite" parent="Forest Background/Layer 2/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Forest3"]
 texture = ExtResource( 7 )
 centered = false
 offset = Vector2( 0, -325 )
 
-[node name="Layer 1" type="ParallaxBackground" parent="Forest Background"]
-scroll_base_scale = Vector2( 0.6, 1 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Forest Background/Layer 1"]
+[node name="Forest4" type="ParallaxLayer" parent="ParralaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 400, 0 )
 
-[node name="Sprite" type="Sprite" parent="Forest Background/Layer 1/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="ParralaxBackground/Forest4"]
 texture = ExtResource( 9 )
 centered = false
 offset = Vector2( 0, -325 )
@@ -605,4 +596,4 @@ position = Vector2( 1103, -185.047 )
 position = Vector2( 1569.74, 2 )
 
 [node name="CharacterPosition" type="Position2D" parent="."]
-position = Vector2( 37, -20 )
+position = Vector2( 2023.76, -51.4289 )
