@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/TROTTENET - BouncyCloud.png" type="Texture" id=1]
+[ext_resource path="res://Items/BouncyCloud.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1.56779, -1.44093, -87.4067, 24.3787, 87.4067, -24.3787, 111.808, -47.8833, 0, 0, 0, 0, 348.648, -68.4341, -104.056, 2.37841, 104.056, -2.37841, 543.589, -47.2448, -140.921, 7.13524, 140.921, -7.13524, 764.29, -83.7289, -176.597, -2.37841, 176.597, 2.37841, 1042.67, -47.8878, 0, 0, 0, 0, 1300.6, -92.8694 )
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 2.59268 )
+
+[node name="BouncyCloud" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1.56779, -1.44093 )
+rotation = -0.67658
+rotate = false
+loop = false
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
+position = Vector2( -2.12465, 0.141873 )
+rotation = 0.67658
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D/KinematicBody2D"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
+position = Vector2( 0, 1.40308 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D/Area2D"]
+position = Vector2( 0, -9.85292 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/KinematicBody2D/Area2D" to="." method="_on_Area2D_body_entered"]

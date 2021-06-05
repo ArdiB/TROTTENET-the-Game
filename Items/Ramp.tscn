@@ -18,5 +18,6 @@ polygon = PoolVector2Array( 15.7348, -8.30603, 7.74888, -2.88949, -3.77863, 3.29
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 14.9993, -8.64256, -2.04751, -9.20661, -7.87603, -6.44903, -12.7645, -3.62878, -14.958, 0.00620461, -16.0234, 6.08541, -10.6963, 4.70662, -7.43732, 2.9518, -1.92217, 1.1343, 3.21695, -1.49793, 10.3616, -5.50895 )
+
 [connection signal="body_entered" from="." to="." method="_on_Ramp_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Ramp_body_exited"]

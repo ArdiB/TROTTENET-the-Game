@@ -3,7 +3,6 @@
 [ext_resource path="res://Items/Bridge.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TROTTENET - Bridge.png" type="Texture" id=2]
 
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 170, 108 )
@@ -67,4 +66,5 @@ one_way_collision = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.329288, -22.7727 )
 shape = SubResource( 11 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
