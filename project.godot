@@ -21,6 +21,7 @@ config/icon="res://Assets/Logo.png"
 [autoload]
 
 SceneLoader="*res://SceneLoader.gd"
+TransitionScreen="*res://Scenes/TransitionScreen.tscn"
 
 [display]
 
