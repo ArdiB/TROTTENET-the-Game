@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Assets/CharacterZilly.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Zilly.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Zilly.png" type="Texture" id=7]
 [ext_resource path="res://Assets/GUI/TROTTENET - Skill_Progress.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Animation.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 9 )
@@ -226,7 +227,7 @@ script = ExtResource( 2 )
 [node name="SkillSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -17, 5 )
 frames = SubResource( 7 )
-frame = 4
+frame = 2
 speed_scale = 2.5
 playing = true
 
@@ -234,6 +235,7 @@ playing = true
 position = Vector2( 2, 7 )
 texture = ExtResource( 1 )
 hframes = 21
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4.22087, 5.31966 )
@@ -323,5 +325,11 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="GUI"]
 repeat = true
 playback/repeat = true
+
+[node name="Timer" parent="GUI" instance=ExtResource( 10 )]
+margin_left = 43.0
+margin_top = 14.0
+margin_right = 83.0
+margin_bottom = 28.0
 
 [connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]

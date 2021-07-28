@@ -1,9 +1,9 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Assets/TROTTENET - Tileset 01.png" type="Texture" id=1]
 [ext_resource path="res://Assets/TROTTENET - Background_Cave_Layer3.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/TestLevel.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Retro Gaming.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/TROTTENET - Tileset_Bushes.png" type="Texture" id=4]
 [ext_resource path="res://Items/Coin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Forest Layer 3.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Forest Layer 2.png" type="Texture" id=7]
@@ -416,10 +416,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 2/z_index = 0
 
-[sub_resource type="DynamicFont" id=39]
-size = 10
-font_data = ExtResource( 4 )
-
 [node name="TestLevel" type="Node2D" groups=[
 "Level",
 ]]
@@ -456,26 +452,6 @@ position = Vector2( 3196, 179 )
 texture = ExtResource( 14 )
 hframes = 4
 frame = 3
-
-[node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
-margin_left = 40.0
-margin_top = 15.0
-margin_right = 90.0
-margin_bottom = 45.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Timer" type="Label" parent="GUI/VBoxContainer"]
-margin_right = 50.0
-margin_bottom = 13.0
-custom_fonts/font = SubResource( 39 )
-text = "Time: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -600,3 +576,9 @@ position = Vector2( 34.344, -17.2766 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 17 )]
 position = Vector2( 4044.71, 6 )
+
+[node name="TROTTENET - Tileset_Bushes" type="Sprite" parent="."]
+position = Vector2( 255.253, -8.26571 )
+texture = ExtResource( 4 )
+hframes = 6
+frame = 2

@@ -71,7 +71,6 @@ texture = ExtResource( 1 )
 [node name="PressEnter" type="AnimatedSprite" parent="Titlescreen"]
 position = Vector2( 0, -80 )
 frames = SubResource( 3 )
-frame = 1
 speed_scale = 0.4
 playing = true
 
