@@ -13,6 +13,8 @@ margin_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

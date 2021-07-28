@@ -14,6 +14,7 @@ var on_ramp = false
 var coin_value = 4
 var Skill = false
 
+
 onready var state_machine = $AnimationTree. get("parameters/playback")
 
 
@@ -25,7 +26,7 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	print(SPEED)
+	#print(SPEED)
 	
 	if SPEED + delta * -DECELERATION > 0:
 		SPEED -= delta * DECELERATION
@@ -43,7 +44,7 @@ func _physics_process(delta):
 		SPEED = 0
 		 #Speed reset on wall
 		
-	#print (SPEED)
+	
 	
 	movement.x = SPEED
 	movement.y += GRAVITY * delta
@@ -141,4 +142,6 @@ func ramp_exited():
 
 
 
-#test123
+
+
+

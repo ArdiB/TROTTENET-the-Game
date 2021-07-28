@@ -2,7 +2,6 @@ extends Node2D
 
 
 var character 
-var time = 0
 
 func _ready():
 	_load_character()
@@ -26,3 +25,4 @@ func _load_character():
 	var character_instance = character_scene.instance()
 	character_instance. position = $CharacterPosition.position
 	add_child(character_instance)
+	move_child(character_instance, 2)
