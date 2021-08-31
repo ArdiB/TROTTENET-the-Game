@@ -3,7 +3,7 @@ extends Control
 
 func _ready():
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
-func _process(delta):
+func _process(_delta):
 	_continue()
 	
 	

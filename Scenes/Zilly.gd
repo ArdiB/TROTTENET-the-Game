@@ -11,6 +11,7 @@ var movement = Vector2()
 var SPEED = 0
 var energy = 100
 var on_ramp = false
+var in_bush = false
 var coin_value = 4
 var Skill = false
 
@@ -23,10 +24,12 @@ onready var state_machine = $AnimationTree. get("parameters/playback")
 func _ready():
 	listen_for_ramps()
 	listen_for_coins()
-	
+	listen_for_slow_items()
 	
 func _physics_process(delta):
 	#print(SPEED)
+	if in_bush == true and SPEED > 0:
+		SPEED -= delta * 100
 	
 	if SPEED + delta * -DECELERATION > 0:
 		SPEED -= delta * DECELERATION
@@ -36,11 +39,11 @@ func _physics_process(delta):
 		energy += 0.1
 		#Energy regeneration over time
 		
-	if movement.y > 150 and is_on_floor():
-		$Camera2D/CameraShake. _start()
 		
 	if is_on_wall() == true:
 		$Camera2D/CameraShake. _start()
+		$"/root/SoundManager".crash()
+		energy += 25
 		SPEED = 0
 		 #Speed reset on wall
 		
@@ -52,6 +55,7 @@ func _physics_process(delta):
 	
 	if Input. is_action_just_pressed("right") and is_on_floor() and (energy >= 25) and state_machine.get_current_node() != "speed_up":
 		state_machine.travel("speed_up")
+		$"/root/SoundManager".speed_up()
 		energy -= 25
 		SPEED += delta * ACCELERATION
 		#speed up
@@ -62,10 +66,13 @@ func _physics_process(delta):
 		#drag
 		
 	if Input. is_action_just_pressed("jump") and is_on_floor() and state_machine.get_current_node() != "speed_up":
+		$"/root/SoundManager".jump()
 		movement.y = -JUMP_POWER
+	
 		
 	if Input. is_action_just_pressed("jump") and is_on_floor() and on_ramp == true:
 		state_machine.travel("trick")
+		$"/root/SoundManager".jump()
 		movement.y -= 95 * SPEED * delta
 		SPEED += 30 * SPEED * delta 
 		
@@ -94,6 +101,7 @@ func skill_shifter():
 		Skill = true
 func _on_SkillTimer_timeout():
 	Skill = false
+	
 func skill():
 	if Skill == true:
 		SPEED = clamp(SPEED, 0, 200)
@@ -141,7 +149,18 @@ func ramp_exited():
 	on_ramp = false
 
 
+func listen_for_slow_items():
+		var slow_items = get_tree(). get_nodes_in_group("slow_items")
+		for slow_item in slow_items:
+			slow_item. connect("in_bush", self, "bush_entered")
+			slow_item. connect("not_in_bush", self, "bush_exited")
 
+func bush_entered():
+	print ("in_bush")
+	in_bush = true
+
+func bush_exited():
+	in_bush = false
 
 
 

@@ -8,6 +8,7 @@ size = 50
 font_data = ExtResource( 2 )
 
 [node name="Countdown" type="Label"]
+pause_mode = 2
 margin_right = 40.0
 margin_bottom = 64.0
 grow_horizontal = 2

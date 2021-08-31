@@ -4,16 +4,21 @@
 [ext_resource path="res://Assets/TROTTENET - SelectionMenu_Level.png" type="Texture" id=2]
 [ext_resource path="res://Assets/TROTTENET - SelectionMenu_Character.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Buttons/TROTTENET - Startbutton Pr.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Buttons/TROTTENET - Arrowbutton RPr.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/TROTTENET - Arrowbutton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Buttons/TROTTENET - Startbutton.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Buttons/TROTTENET - Highscoresbutton.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Buttons/TROTTENET - Highscoresbutton Pr.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Buttons/TROTTENET - Arrowbutton R.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Buttons/TROTTENET - Arrowbutton LPr.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/TROTTENET - Arrowbutton Pr.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Buttons/TROTTENET - Optionsbutton Pr.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Buttons/TROTTENET - Optionsbutton.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Buttons/TROTTENET - Arrowbutton L.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/SelectionMenu.gd" type="Script" id=14]
+
+[sub_resource type="InputEventAction" id=1]
+action = "Esc"
+pressed = true
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="SelectionMenu" type="Control"]
 anchor_right = 1.0
@@ -35,25 +40,23 @@ hframes = 3
 [node name="Characters" type="Sprite" parent="."]
 position = Vector2( 154, 38 )
 texture = ExtResource( 3 )
-hframes = 2
+hframes = 3
 
-[node name="Options" type="TextureButton" parent="."]
-margin_left = 283.0
-margin_top = 1.0
-margin_right = 301.0
-margin_bottom = 19.0
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 11 )
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_top = 4.0
+margin_bottom = 24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Highscores" type="TextureButton" parent="."]
-margin_left = 304.0
-margin_top = 1.0
-margin_right = 318.0
-margin_bottom = 19.0
+[node name="Highscores" type="TextureButton" parent="HBoxContainer"]
+margin_right = 14.0
+margin_bottom = 20.0
+focus_neighbour_left = NodePath("../../Character R")
+focus_neighbour_right = NodePath("../Options")
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 8 )
@@ -61,11 +64,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Options" type="TextureButton" parent="HBoxContainer"]
+margin_left = 18.0
+margin_right = 36.0
+margin_bottom = 20.0
+focus_neighbour_left = NodePath("../Highscores")
+shortcut_in_tooltip = false
+shortcut = SubResource( 2 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Start" type="TextureButton" parent="."]
 margin_left = 139.274
-margin_top = 146.535
+margin_top = 155.535
 margin_right = 180.274
-margin_bottom = 164.535
+margin_bottom = 173.535
+focus_neighbour_left = NodePath("../Level L")
+focus_neighbour_top = NodePath("../Level R")
+focus_neighbour_right = NodePath("../Level R")
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -78,21 +98,27 @@ margin_left = 232.281
 margin_top = 33.2129
 margin_right = 246.281
 margin_bottom = 45.2129
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
+focus_neighbour_left = NodePath("../Character L")
+focus_neighbour_right = NodePath("../HBoxContainer/Highscores")
+focus_neighbour_bottom = NodePath("../Level R")
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Character L" type="TextureButton" parent="."]
-margin_left = 74.0757
-margin_top = 32.5247
-margin_right = 88.0757
-margin_bottom = 44.5247
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 10 )
+margin_left = 88.0757
+margin_top = 44.5247
+margin_right = 102.076
+margin_bottom = 56.5247
+rect_rotation = 180.0
+focus_neighbour_right = NodePath("../Character R")
+focus_neighbour_bottom = NodePath("../Level L")
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -102,26 +128,34 @@ margin_left = 231.803
 margin_top = 99.3425
 margin_right = 245.803
 margin_bottom = 111.342
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
+focus_neighbour_left = NodePath("../Level L")
+focus_neighbour_top = NodePath("../Character R")
+focus_neighbour_bottom = NodePath("../Start")
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level L" type="TextureButton" parent="."]
-margin_left = 74.0757
-margin_top = 98.5247
-margin_right = 88.0757
-margin_bottom = 110.525
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 10 )
+margin_left = 88.0757
+margin_top = 110.525
+margin_right = 102.076
+margin_bottom = 122.525
+rect_rotation = 180.0
+focus_neighbour_top = NodePath("../Character L")
+focus_neighbour_right = NodePath("../Level R")
+focus_neighbour_bottom = NodePath("../Start")
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="HBoxContainer/Highscores" to="." method="_on_Highscores_pressed"]
+[connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Character R" to="." method="_on_Character_R_pressed"]
 [connection signal="pressed" from="Character L" to="." method="_on_Character_L_pressed"]

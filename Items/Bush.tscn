@@ -1,10 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/TROTTENET - Tileset_Bushes.png" type="Texture" id=1]
 [ext_resource path="res://Bush.gd" type="Script" id=2]
+[ext_resource path="res://Assets/TROTTENET - Bush_Particle.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22, 8 )
+extents = Vector2( 17, 6 )
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1.63635 ), 0.0, 24.2661, 0, 0, Vector2( 0.467105, 54 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 5, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 80.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 25.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_random = 0.45
+angle_curve = SubResource( 3 )
+color = Color( 0.239216, 0.498039, 0.215686, 1 )
 
 [node name="Bush" type="Area2D" groups=[
 "slow_items",
@@ -15,5 +38,18 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"slow_items",
+]]
 shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 5
+lifetime = 0.8
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_Bush_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Bush_body_exited"]
