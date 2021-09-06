@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready():
+	OS.window_fullscreen = $"/root/VarSaves".fullscreen
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
 func _process(_delta):
 	_continue()

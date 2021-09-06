@@ -5,6 +5,7 @@ const GRAVITY = 400
 const JUMP_POWER = 150
 const UP_VECTOR = Vector2(0, -1)
 
+var charactername = "Zilly"
 var DECELERATION = 10
 var ACCELERATION = 3000
 var movement = Vector2() 
@@ -12,7 +13,7 @@ var SPEED = 0
 var energy = 100
 var on_ramp = false
 var in_bush = false
-var coin_value = 4
+var coin_value = 1
 var Skill = false
 
 

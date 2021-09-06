@@ -2,17 +2,21 @@ extends CanvasLayer
 
 var menu_pressed = false
 var fertig_pressed = false
-var SoundValue = 0
+var fullscreen = false
 
 func _ready():
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
 	if get_tree().get_current_scene().name == "SelectionMenu":
 		$Buttons/Menu.visible = false
-	$Buttons/Witer.grab_focus()
-
-func _on_HSlider_value_changed(value):
-	SoundValue = $Buttons/Sound/HSlider.value
-
+		
+	$Buttons/Sound/SoundSlider.value = $"/root/Settings".sound_volume
+	$Buttons/Musig/MusigSlider.value = $"/root/Settings".music_volume
+		
+	if OS.window_fullscreen == true:
+		$Buttons/Fullscreen/Checkbox.frame = 0
+	else:
+		$Buttons/Fullscreen/Checkbox.frame = 1
+	
 
 func _on_Menu_pressed():
 	menu_pressed = true
@@ -35,5 +39,26 @@ func _on_Witer_pressed():
 	self. queue_free()
 
 
-func _on_Fullscreen_toggled(button_pressed):
+	
+
+
+func _on_Fullscreen_pressed():
+	
 	OS.window_fullscreen = !OS.window_fullscreen
+	fullscreen = OS.window_fullscreen
+	if OS.window_fullscreen == true:
+		$Buttons/Fullscreen/Checkbox.frame = 0
+	else:
+		$Buttons/Fullscreen/Checkbox.frame = 1
+	$"/root/VarSaves".fullscreen = fullscreen
+	
+	
+	
+
+
+func _on_SoundSlider_value_changed(value):
+	$"/root/Settings".sound_volume = $Buttons/Sound/SoundSlider.value
+
+
+func _on_MusigSlider_value_changed(value):
+	$"/root/Settings".music_volume = $Buttons/Musig/MusigSlider.value

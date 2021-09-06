@@ -5,7 +5,7 @@ var highscores_pressed = false
 
 func _ready():
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
-
+	$VBoxContainer/Time.text = $"/root/Highscores".time
 func _transitioned():
 	get_tree().paused = false
 	if menu_pressed == true:

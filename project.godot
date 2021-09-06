@@ -23,6 +23,9 @@ config/icon="res://Assets/Logo.png"
 SceneLoader="*res://SceneLoader.gd"
 TransitionScreen="*res://Scenes/TransitionScreen.tscn"
 SoundManager="*res://Scenes/SoundManager.tscn"
+VarSaves="*res://Scenes/Saves/VarSaves.gd"
+Settings="*res://Scenes/Saves/Settings.gd"
+Highscores="*res://Scenes/Saves/Highscores.gd"
 
 [display]
 

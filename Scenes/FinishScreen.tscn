@@ -48,7 +48,7 @@ text = "ZIEL"
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Time" type="Label" parent="VBoxContainer"]
 margin_top = 55.0
 margin_right = 118.0
 margin_bottom = 68.0

@@ -9,8 +9,11 @@ var highscores_pressed = false
 onready var zilly = preload("res://Scenes/Zilly.tscn")
 
 func _ready():
+	character = $"/root/VarSaves".character
+	$Characters.frame = character
+	level = $"/root/VarSaves".level
+	$Levels.frame = level
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
-	$"Character R".grab_focus()
 
 func _on_Character_R_pressed():
 	if character < 1:
@@ -18,6 +21,7 @@ func _on_Character_R_pressed():
 	else:
 		character =0
 	$Characters. frame = character
+	$"/root/VarSaves".character = character
 	
 func _on_Character_L_pressed():
 	if character > 0:
@@ -25,6 +29,7 @@ func _on_Character_L_pressed():
 	else:
 		character = 1
 	$Characters. frame = character
+	$"/root/VarSaves".character = character
 
 func _on_Level_R_pressed():
 	if level < 2:
@@ -32,6 +37,7 @@ func _on_Level_R_pressed():
 	else:
 		level = 0
 	$Levels. frame = level
+	$"/root/VarSaves".level = level
 
 func _on_Level_L_pressed():
 	if level > 0:
@@ -39,6 +45,7 @@ func _on_Level_L_pressed():
 	else:
 		level = 2
 	$Levels. frame = level
+	$"/root/VarSaves".level = level
 
 
 

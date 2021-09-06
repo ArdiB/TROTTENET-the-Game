@@ -189,8 +189,7 @@ graph_offset = Vector2( 18, -169.656 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
 [node name="Player" type="KinematicBody2D" groups=[
-"Items",
-"ramp",
+"Character",
 ]]
 collision/safe_margin = 0.5
 script = ExtResource( 2 )
