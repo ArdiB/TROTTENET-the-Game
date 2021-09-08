@@ -1,6 +1,8 @@
 extends Node2D
 
-
+var new_score
+var charactername
+var time = 0
 var character 
 
 
@@ -44,4 +46,28 @@ func _on_FinishLine_body_entered(body):
 	var finishscreen = finishscreen_resource.instance()
 	add_child(finishscreen)
 	get_tree().paused = true
+	
+func set_score():
+	time = $CanvasLayer/Timer.text
+	$"/root/Highscores".time = time
+	var characterscore = get_tree().get_nodes_in_group("Character")
+	for character in characterscore:
+		charactername = character.charactername
+	new_score = str(time,"  -  ",charactername )
+	$"/root/Highscores".new_score = new_score
+	$"/root/Highscores".update_space_score()
+	
+
+
+#func _on_AsteroidTimer_timeout():
+	var randomnumber = [5, -25]
+	#spawn asteroid at characterposition + vector2
+	var characterposition = get_tree().get_nodes_in_group("Character")
+	for character in characterposition:
+		characterposition = character.position
+	var asteroid_path = "res://Items/Asteroid.tscn"
+	var asteroid_resource = load (asteroid_path)
+	var asteroid = asteroid_resource.instance()
+	asteroid. position = characterposition + Vector2(200, randomnumber[randi() % randomnumber.size()])
+	add_child(asteroid)
 	
