@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TROTTENET - BouncyCloud.png-690460af9166f06bf16bcd8ee3dd3d62.stex"
+path="res://.import/TROTTENET - SaveCloud.png-c6cb03b2c590084e8188cf21c408a8c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TROTTENET - BouncyCloud.png"
-dest_files=[ "res://.import/TROTTENET - BouncyCloud.png-690460af9166f06bf16bcd8ee3dd3d62.stex" ]
+source_file="res://Assets/TROTTENET - SaveCloud.png"
+dest_files=[ "res://.import/TROTTENET - SaveCloud.png-c6cb03b2c590084e8188cf21c408a8c9.stex" ]
 
 [params]
 

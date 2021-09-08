@@ -8,7 +8,9 @@ var character
 
 func _ready():
 	_load_character()
+	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
 	get_tree().paused = true
+	
 	
 func _process(_delta):
 
@@ -59,9 +61,9 @@ func set_score():
 	
 
 
-#func _on_AsteroidTimer_timeout():
-	var randomnumber = [5, -25]
+func _on_AsteroidTimer_timeout():
 	#spawn asteroid at characterposition + vector2
+	var randomnumber = [5, -25]
 	var characterposition = get_tree().get_nodes_in_group("Character")
 	for character in characterposition:
 		characterposition = character.position
@@ -71,3 +73,21 @@ func set_score():
 	asteroid. position = characterposition + Vector2(200, randomnumber[randi() % randomnumber.size()])
 	add_child(asteroid)
 	
+	
+
+
+
+func _on_SaveArea_body_entered(body):
+	$"/root/TransitionScreen".transition()
+	
+func _transitioned():
+	var characterposition = get_tree().get_nodes_in_group("Character")
+	for character in characterposition:
+		characterposition = character.position
+		character.position +=  Vector2(-150, -300)
+		
+	var cloud_path = "res://Items/SaveCloud.tscn"
+	var cloud_resource = load (cloud_path)
+	var cloud = cloud_resource.instance()
+	cloud.position = characterposition + Vector2(-150, -290)
+	add_child(cloud)

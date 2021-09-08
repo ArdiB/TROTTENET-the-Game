@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 signal transitioned
-
+signal transitioned2
 
 		
 		
@@ -21,3 +21,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("fade_to_normal")
 	if anim_name == "fade_to_normal":
 		$ColorRect.visible = false
+		emit_signal("transitioned2")
