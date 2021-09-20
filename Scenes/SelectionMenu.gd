@@ -6,7 +6,8 @@ var level = 0
 var start_pressed = false
 var highscores_pressed = false
 
-onready var zilly = preload("res://Scenes/Zilly.tscn")
+onready var zilly = preload("res://Scenes/Players/Zilly.tscn")
+onready var happy = preload("res://Scenes/Players/Happy.tscn")
 
 func _ready():
 	character = $"/root/VarSaves".character
@@ -59,18 +60,24 @@ func _transitioned():
 	if start_pressed == true:
 		if character == 0:
 			var properties = {
-				"character": "res://Scenes/Zilly.tscn"
+				"character": "res://Scenes/Players/Zilly.tscn"
 			}
 			if level == 0:
-				SceneLoader.goto_scene("res://Scenes/TestLevel.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
 			if level == 1:
-				SceneLoader.goto_scene("res://Scenes/Level2.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
 		if character == 1:
 			var properties = {
-				"character": "res://Scenes/Player.tscn"
+				"character": "res://Scenes/Players/Happy.tscn"
 			}
 			if level == 0:
-				SceneLoader.goto_scene("res://Scenes/TestLevel.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
 	if highscores_pressed == true:
 		SceneLoader.goto_scene("res://Scenes/Highscores.tscn")
 		
@@ -86,3 +93,5 @@ func _on_Options_pressed():
 func _on_Highscores_pressed():
 	highscores_pressed = true
 	$"/root/TransitionScreen".transition()
+	
+

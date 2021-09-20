@@ -1,0 +1,224 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Assets/TROTTENET - Tileset_Tutorial.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Countdown.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Buttons/TROTTENET - Optionsbutton Pr.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Buttons/TROTTENET - Optionsbutton.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Timer.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Retro Gaming.ttf" type="DynamicFontData" id=22]
+
+[sub_resource type="InputEventAction" id=1]
+action = "Esc"
+pressed = true
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 22 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=18]
+0/name = "TROTTENET - Tileset_Tutorial.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 16, 80, 64 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 2
+0/autotile/bitmask_flags = [ Vector2( 0, 1 ), 432, Vector2( 0, 2 ), 438, Vector2( 0, 3 ), 54, Vector2( 1, 0 ), 144, Vector2( 1, 1 ), 506, Vector2( 1, 2 ), 511, Vector2( 1, 3 ), 63, Vector2( 2, 1 ), 504, Vector2( 2, 2 ), 511, Vector2( 2, 3 ), 63, Vector2( 3, 1 ), 216, Vector2( 3, 2 ), 219, Vector2( 3, 3 ), 27, Vector2( 4, 0 ), 16 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 4 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Tutorial" type="Node2D" groups=[
+"Level",
+]]
+position = Vector2( 0, 2 )
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Countdown" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -32.0
+margin_right = 20.0
+margin_bottom = 32.0
+
+[node name="Options" type="TextureButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -18.0
+margin_bottom = 18.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 2 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource( 21 )]
+margin_left = 43.0
+margin_top = 14.0
+margin_right = 83.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 3 )
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="CharacterPosition" type="Position2D" parent="."]
+position = Vector2( 48.1487, -34.166 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 18 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65538, 2, 0, 65538, 3, 0, 65538, 4, 0, 65538, 5, 0, 65538, 6, 0, 65538, 7, 0, 65538, 8, 0, 65538, 9, 0, 65538, 10, 0, 65538, 11, 0, 65538, 12, 0, 65538, 13, 0, 65538, 14, 0, 65538, 15, 0, 65538, 16, 0, 65538, 17, 0, 65538, 18, 0, 65538, 19, 0, 65538, 20, 0, 65538, 21, 0, 65538, 22, 0, 65538, 23, 0, 65538, 24, 0, 65538, 25, 0, 65538, 26, 0, 65538, 27, 0, 65538, 28, 0, 65538, 29, 0, 65538, 30, 0, 65538, 31, 0, 65538, 32, 0, 65538, 33, 0, 65538, 34, 0, 65538, 35, 0, 65538, 36, 0, 65538, 37, 0, 65538, 38, 0, 65538, 39, 0, 65538, 40, 0, 65538, 41, 0, 65539, 65536, 0, 131072, 65537, 0, 131073, 65538, 0, 131074, 65539, 0, 131073, 65540, 0, 131074, 65541, 0, 131074, 65542, 0, 131073, 65543, 0, 131074, 65544, 0, 131073, 65545, 0, 131073, 65546, 0, 131074, 65547, 0, 131074, 65548, 0, 131073, 65549, 0, 131073, 65550, 0, 131073, 65551, 0, 131073, 65552, 0, 131074, 65553, 0, 131074, 65554, 0, 131074, 65555, 0, 131073, 65556, 0, 131074, 65557, 0, 131074, 65558, 0, 131074, 65559, 0, 131074, 65560, 0, 131074, 65561, 0, 131073, 65562, 0, 131073, 65563, 0, 131074, 65564, 0, 131074, 65565, 0, 131073, 65566, 0, 131073, 65567, 0, 131074, 65568, 0, 131073, 65569, 0, 131074, 65570, 0, 131074, 65571, 0, 131073, 65572, 0, 131074, 65573, 0, 131073, 65574, 0, 131074, 65575, 0, 131074, 65576, 0, 131073, 65577, 0, 131075, 131072, 0, 131072, 131073, 0, 131073, 131074, 0, 131073, 131075, 0, 131074, 131076, 0, 131073, 131077, 0, 131074, 131078, 0, 131073, 131079, 0, 131073, 131080, 0, 131074, 131081, 0, 131073, 131082, 0, 131073, 131083, 0, 131074, 131084, 0, 131074, 131085, 0, 131073, 131086, 0, 131073, 131087, 0, 131074, 131088, 0, 131074, 131089, 0, 131073, 131090, 0, 131074, 131091, 0, 131073, 131092, 0, 131073, 131093, 0, 131073, 131094, 0, 131073, 131095, 0, 131073, 131096, 0, 131074, 131097, 0, 131074, 131098, 0, 131074, 131099, 0, 131073, 131100, 0, 131074, 131101, 0, 131074, 131102, 0, 131073, 131103, 0, 131074, 131104, 0, 131073, 131105, 0, 131074, 131106, 0, 131073, 131107, 0, 131074, 131108, 0, 131074, 131109, 0, 131074, 131110, 0, 131073, 131111, 0, 131074, 131112, 0, 131073, 131113, 0, 131075, 196608, 0, 131072, 196609, 0, 131074, 196610, 0, 131073, 196611, 0, 131073, 196612, 0, 131073, 196613, 0, 131074, 196614, 0, 131073, 196615, 0, 131073, 196616, 0, 131074, 196617, 0, 131074, 196618, 0, 131074, 196619, 0, 131073, 196620, 0, 131073, 196621, 0, 131073, 196622, 0, 131074, 196623, 0, 131073, 196624, 0, 131073, 196625, 0, 131073, 196626, 0, 131073, 196627, 0, 131074, 196628, 0, 131073, 196629, 0, 131074, 196630, 0, 131073, 196631, 0, 131073, 196632, 0, 131074, 196633, 0, 131073, 196634, 0, 131074, 196635, 0, 131073, 196636, 0, 131074, 196637, 0, 131074, 196638, 0, 131073, 196639, 0, 131073, 196640, 0, 131074, 196641, 0, 131074, 196642, 0, 131074, 196643, 0, 131074, 196644, 0, 131073, 196645, 0, 131073, 196646, 0, 131074, 196647, 0, 131074, 196648, 0, 131073, 196649, 0, 131075, 262144, 0, 131072, 262145, 0, 131074, 262146, 0, 131074, 262147, 0, 131073, 262148, 0, 131073, 262149, 0, 131073, 262150, 0, 131073, 262151, 0, 131073, 262152, 0, 131073, 262153, 0, 131074, 262154, 0, 131073, 262155, 0, 131073, 262156, 0, 131074, 262157, 0, 131074, 262158, 0, 131074, 262159, 0, 131073, 262160, 0, 131074, 262161, 0, 131073, 262162, 0, 131073, 262163, 0, 131073, 262164, 0, 131073, 262165, 0, 131074, 262166, 0, 131073, 262167, 0, 131073, 262168, 0, 131073, 262169, 0, 131073, 262170, 0, 131074, 262171, 0, 131073, 262172, 0, 131073, 262173, 0, 131073, 262174, 0, 131074, 262175, 0, 131073, 262176, 0, 131073, 262177, 0, 131073, 262178, 0, 131073, 262179, 0, 131073, 262180, 0, 131073, 262181, 0, 131074, 262182, 0, 131074, 262183, 0, 131074, 262184, 0, 131073, 262185, 0, 131075, 327680, 0, 196608, 327681, 0, 196610, 327682, 0, 196609, 327683, 0, 196610, 327684, 0, 196610, 327685, 0, 196610, 327686, 0, 196609, 327687, 0, 196610, 327688, 0, 196610, 327689, 0, 196610, 327690, 0, 196609, 327691, 0, 196609, 327692, 0, 196609, 327693, 0, 196610, 327694, 0, 196610, 327695, 0, 196610, 327696, 0, 196609, 327697, 0, 196610, 327698, 0, 196609, 327699, 0, 196609, 327700, 0, 196610, 327701, 0, 196610, 327702, 0, 196610, 327703, 0, 196610, 327704, 0, 196609, 327705, 0, 196610, 327706, 0, 196610, 327707, 0, 196609, 327708, 0, 196609, 327709, 0, 196610, 327710, 0, 196609, 327711, 0, 196609, 327712, 0, 196610, 327713, 0, 196609, 327714, 0, 196610, 327715, 0, 196609, 327716, 0, 196610, 327717, 0, 196610, 327718, 0, 196610, 327719, 0, 196609, 327720, 0, 196610, 327721, 0, 196611, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0 )
+
+[connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_Options_pressed"]

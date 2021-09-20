@@ -1,37 +1,37 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=52 format=2]
 
-[ext_resource path="res://Assets/CharacterZilly.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Zilly.gd" type="Script" id=2]
-[ext_resource path="res://Assets/GUI/Energy Bar_Over - GUI.png" type="Texture" id=3]
-[ext_resource path="res://Assets/GUI/Energy Bar_Process - GUI.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GUI/TROTTENET - Skill_Progress.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GUI/Energy Bar_Process - GUI.png" type="Texture" id=2]
+[ext_resource path="res://Assets/CharacterZilly.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/Energy Bar_Over - GUI.png" type="Texture" id=4]
 [ext_resource path="res://Assets/GUI/Energy Bar_Under - GUI.png" type="Texture" id=5]
-[ext_resource path="res://Items/CameraShake.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Animation.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Zilly9.png" type="Texture" id=7]
-[ext_resource path="res://Assets/GUI/TROTTENET - Skill_Progress.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Zilly/TROTTENET - Skill_Animation.png" type="Texture" id=9]
+[ext_resource path="res://Items/CameraShake.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Players/Zilly.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 33, 28 )
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 33, 0, 33, 28 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 66, 0, 33, 28 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 99, 0, 33, 28 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 132, 0, 33, 28 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 165, 0, 33, 28 )
 
 [sub_resource type="SpriteFrames" id=7]
@@ -62,6 +62,22 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+resource_name = "back"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20, 24 ]
+}
+
+[sub_resource type="Animation" id=11]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -77,7 +93,7 @@ tracks/0/keys = {
 "values": [ 7, 11 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -92,7 +108,7 @@ tracks/0/keys = {
 "values": [ 0, 2 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -108,7 +124,7 @@ tracks/0/keys = {
 "values": [ 3, 7 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -123,7 +139,7 @@ tracks/0/keys = {
 "values": [ 19 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -139,104 +155,118 @@ tracks/0/keys = {
 "values": [ 11, 18 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "air"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "drive"
-
 [sub_resource type="AnimationNodeAnimation" id=17]
-animation = "idle"
+animation = "back"
 
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "speed_up"
+animation = "drive"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
-animation = "stop"
+animation = "idle"
 
 [sub_resource type="AnimationNodeAnimation" id=20]
+animation = "speed_up"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "stop"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "trick"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
-switch_mode = 2
-auto_advance = true
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
-advance_condition = "jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
-advance_condition = "moving"
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 advance_condition = "jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
-advance_condition = "not_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
 advance_condition = "moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+advance_condition = "jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
 advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
-advance_condition = "not_moving"
+advance_condition = "moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
+advance_condition = "not_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
+advance_condition = "not_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=34]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=36]
-states/air/node = SubResource( 15 )
-states/air/position = Vector2( 602, 84.344 )
-states/drive/node = SubResource( 16 )
-states/drive/position = Vector2( 906, 230.344 )
-states/idle/node = SubResource( 17 )
-states/idle/position = Vector2( 186, 182.344 )
-states/speed_up/node = SubResource( 18 )
-states/speed_up/position = Vector2( 586, 175.344 )
-states/stop/node = SubResource( 19 )
-states/stop/position = Vector2( 594, 304.344 )
-states/trick/node = SubResource( 20 )
-states/trick/position = Vector2( 800, -3.65601 )
-transitions = [ "idle", "speed_up", SubResource( 21 ), "speed_up", "drive", SubResource( 22 ), "drive", "air", SubResource( 23 ), "air", "drive", SubResource( 24 ), "idle", "air", SubResource( 25 ), "air", "idle", SubResource( 26 ), "drive", "stop", SubResource( 27 ), "stop", "drive", SubResource( 28 ), "drive", "idle", SubResource( 29 ), "stop", "idle", SubResource( 30 ), "drive", "speed_up", SubResource( 31 ), "idle", "stop", SubResource( 32 ), "drive", "trick", SubResource( 33 ), "trick", "air", SubResource( 34 ), "trick", "drive", SubResource( 35 ) ]
-start_node = "idle"
-graph_offset = Vector2( -76, 23.344 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+switch_mode = 2
+auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=37]
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+advance_condition = "back"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+advance_condition = "back"
+
+[sub_resource type="AnimationNodeStateMachine" id=41]
+states/air/node = SubResource( 16 )
+states/air/position = Vector2( 602, 84.344 )
+states/back/node = SubResource( 17 )
+states/back/position = Vector2( 302, 421.284 )
+states/drive/node = SubResource( 18 )
+states/drive/position = Vector2( 906, 230.344 )
+states/idle/node = SubResource( 19 )
+states/idle/position = Vector2( 163, 189.344 )
+states/speed_up/node = SubResource( 20 )
+states/speed_up/position = Vector2( 586, 174.344 )
+states/stop/node = SubResource( 21 )
+states/stop/position = Vector2( 594, 304.344 )
+states/trick/node = SubResource( 22 )
+states/trick/position = Vector2( 800, -3.65601 )
+transitions = [ "idle", "speed_up", SubResource( 23 ), "speed_up", "drive", SubResource( 24 ), "drive", "air", SubResource( 25 ), "air", "drive", SubResource( 26 ), "idle", "air", SubResource( 27 ), "air", "idle", SubResource( 28 ), "drive", "stop", SubResource( 29 ), "stop", "drive", SubResource( 30 ), "drive", "idle", SubResource( 31 ), "stop", "idle", SubResource( 32 ), "drive", "speed_up", SubResource( 33 ), "idle", "stop", SubResource( 34 ), "drive", "trick", SubResource( 35 ), "trick", "air", SubResource( 36 ), "trick", "drive", SubResource( 37 ), "idle", "back", SubResource( 38 ), "back", "idle", SubResource( 39 ), "stop", "back", SubResource( 40 ) ]
+start_node = "idle"
+graph_offset = Vector2( -267, 222.284 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=42]
 
 [node name="Zilly" type="KinematicBody2D" groups=[
 "Character",
 ]]
 collision/safe_margin = 0.5
-script = ExtResource( 2 )
+script = ExtResource( 9 )
 
 [node name="SkillSprite" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( -17, 5 )
 frames = SubResource( 7 )
+frame = 2
 speed_scale = 2.5
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2, 7 )
-texture = ExtResource( 1 )
-hframes = 21
-frame = 1
+texture = ExtResource( 3 )
+hframes = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4.22087, 5.31966 )
@@ -244,26 +274,28 @@ shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/air = SubResource( 9 )
-anims/drive = SubResource( 10 )
-anims/idle = SubResource( 11 )
-anims/speed_up = SubResource( 12 )
-anims/stop = SubResource( 13 )
-anims/trick = SubResource( 14 )
+anims/back = SubResource( 10 )
+anims/drive = SubResource( 11 )
+anims/idle = SubResource( 12 )
+anims/speed_up = SubResource( 13 )
+anims/stop = SubResource( 14 )
+anims/trick = SubResource( 15 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -50 )
+position = Vector2( 0, -45 )
 current = true
 limit_left = 0
 limit_top = -320
 editor_draw_limits = true
 
-[node name="CameraShake" parent="Camera2D" instance=ExtResource( 6 )]
+[node name="CameraShake" parent="Camera2D" instance=ExtResource( 8 )]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 36 )
+tree_root = SubResource( 41 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 37 )
+parameters/playback = SubResource( 42 )
+parameters/conditions/back = false
 parameters/conditions/jumping = false
 parameters/conditions/moving = false
 parameters/conditions/not_moving = false
@@ -282,7 +314,7 @@ margin_bottom = 45.423
 max_value = 4.0
 value = 4.0
 texture_under = ExtResource( 7 )
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 1 )
 fill_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
@@ -299,8 +331,8 @@ margin_right = -111.447
 margin_bottom = 3725.5
 value = 100.0
 texture_under = ExtResource( 5 )
-texture_over = ExtResource( 3 )
-texture_progress = ExtResource( 4 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 2 )
 tint_under = Color( 0.494118, 0.494118, 0.494118, 1 )
 tint_progress = Color( 0.964706, 0.458824, 0.0313726, 1 )
 __meta__ = {
@@ -317,8 +349,8 @@ margin_top = 3717.5
 margin_right = -111.447
 margin_bottom = 3725.5
 value = 100.0
-texture_over = ExtResource( 3 )
-texture_progress = ExtResource( 4 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

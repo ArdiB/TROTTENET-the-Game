@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/TROTTENET - SaveCloud.png" type="Texture" id=1]
 [ext_resource path="res://Items/SaveCloud.gd" type="Script" id=2]
@@ -27,9 +27,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15.2541, 1.11726 )
-
 [node name="SaveCloud" type="StaticBody2D"]
 script = ExtResource( 2 )
 
@@ -37,8 +34,9 @@ script = ExtResource( 2 )
 frames = SubResource( 5 )
 speed_scale = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.371632, 1.85813 )
-shape = SubResource( 6 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -1.0955, 0.644485 )
+scale = Vector2( 0.963235, 1.10534 )
+polygon = PoolVector2Array( -18.5528, -3.93708, -15.088, 0.787628, 15.8588, 0.630138, 18.8511, -4.01582, 18.9298, 2.99249, -18.0803, 2.91375 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

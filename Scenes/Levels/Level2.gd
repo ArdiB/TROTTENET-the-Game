@@ -43,6 +43,7 @@ func _on_Options_pressed():
 
 
 func _on_FinishLine_body_entered(body):
+	set_score()
 	var finishscreen_path = "res://Scenes/FinishScreen.tscn"
 	var finishscreen_resource = load (finishscreen_path)
 	var finishscreen = finishscreen_resource.instance()

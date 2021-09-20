@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/TROTTENET - Lantern.png" type="Texture" id=1]
+[ext_resource path="res://Assets/TROTTENET - Light_Lantern.png" type="Texture" id=2]
+
+[node name="Lantern" type="Light2D"]
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2.5 )
+texture = ExtResource( 1 )
