@@ -9,9 +9,9 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4.5, 3.5 )
+position = Vector2( 4.5, 3.58343 )
 texture = ExtResource( 1 )
-hframes = 2
+hframes = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
