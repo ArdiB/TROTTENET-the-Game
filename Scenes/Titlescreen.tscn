@@ -74,10 +74,6 @@ frames = SubResource( 3 )
 speed_scale = 0.3
 playing = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 160, 90 )
-current = true
-
 [node name="shootingstar" type="AnimatedSprite" parent="."]
 position = Vector2( 155, 20 )
 scale = Vector2( 0.61, 0.61 )

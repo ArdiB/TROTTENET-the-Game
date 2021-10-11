@@ -5,7 +5,7 @@ const GRAVITY = 400
 const JUMP_POWER = 150
 const UP_VECTOR = Vector2(0, -1)
 
-var charactername = "Happy"
+var charactername = "Zilly"
 var DECELERATION = 10
 var ACCELERATION = 3000
 var movement = Vector2() 
@@ -26,7 +26,6 @@ func _ready():
 	listen_for_ramps()
 	listen_for_coins()
 	listen_for_slow_items()
-	
 	
 	
 	
