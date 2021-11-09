@@ -663,27 +663,27 @@ hframes = 4
 frame = 2
 
 [node name="TROTTENET - Crystals5" type="Sprite" parent="Items/Crystals"]
-position = Vector2( 2592, 108.5 )
+position = Vector2( 2592, 108 )
 rotation = 3.14159
 texture = ExtResource( 14 )
 hframes = 4
 frame = 2
 
 [node name="TROTTENET - Crystals2" type="Sprite" parent="Items/Crystals"]
-position = Vector2( 2721, 156.5 )
+position = Vector2( 2721, 156 )
 rotation = 3.14159
 texture = ExtResource( 14 )
 hframes = 4
 frame = 1
 
 [node name="TROTTENET - Crystals3" type="Sprite" parent="Items/Crystals"]
-position = Vector2( 2947, 156.5 )
+position = Vector2( 2947, 156 )
 rotation = 3.14159
 texture = ExtResource( 14 )
 hframes = 4
 
 [node name="TROTTENET - Crystals4" type="Sprite" parent="Items/Crystals"]
-position = Vector2( 3196, 140.5 )
+position = Vector2( 3196, 140 )
 rotation = 3.14159
 texture = ExtResource( 14 )
 hframes = 4
@@ -767,7 +767,7 @@ position = Vector2( 4219, 24 )
 position = Vector2( 4315, 24 )
 
 [node name="CharacterPosition" type="Position2D" parent="."]
-position = Vector2( 48.1487, -34.166 )
+position = Vector2( 57.9486, -34.166 )
 
 [connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_Options_pressed"]
 [connection signal="body_entered" from="Items/FinishLine" to="." method="_on_FinishLine_body_entered"]

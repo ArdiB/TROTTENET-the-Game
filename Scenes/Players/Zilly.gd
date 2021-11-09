@@ -16,16 +16,13 @@ var in_bush = false
 var coin_value = 4
 var Skill = false
 
-
 onready var state_machine = $AnimationTree. get("parameters/playback")
 
 
 
 
 func _ready():
-	listen_for_ramps()
 	listen_for_coins()
-	listen_for_slow_items()
 	
 	
 	
@@ -47,7 +44,7 @@ func _physics_process(delta):
 		
 		
 	if is_on_wall() == true:
-		$Camera2D/CameraShake. _start()
+		$CharacterCamera/CameraShake. _start()
 		$"/root/SoundManager".crash()
 		energy += 25
 		SPEED = 0
@@ -67,7 +64,7 @@ func _physics_process(delta):
 		#stop
 	
 	if Input.is_action_pressed("left") and SPEED < 1:
-		SPEED = -20
+		SPEED = -ACCELERATION/150
 	if !Input.is_action_pressed("left") and SPEED < 0:
 		SPEED = 0
 		#back
@@ -94,8 +91,9 @@ func _physics_process(delta):
 	skill()
 	check_energy()
 	
-	energy = clamp(energy, 0, 100)
 	coin_value = clamp(coin_value, 0, 4)
+	SPEED = clamp(SPEED, -20, 150)
+	
 	#limitations
 	
 	movement = move_and_slide_with_snap(movement, Vector2(0, -1), UP_VECTOR)
@@ -107,24 +105,19 @@ func skill_shifter():
 		coin_value += 4
 		$GUI/SkillProgress.value = coin_value
 		$SkillTimer.start()
-		energy += 50
 		Skill = true
 func _on_SkillTimer_timeout():
 	Skill = false
+	energy += 100
+	$GUI/SkillSprite.visible = false
 	
 func skill():
 	if Skill == true:
-		SPEED = clamp(SPEED, 0, 200)
-		ACCELERATION = 15000
-		DECELERATION = 40
+		$GUI/SkillSprite.visible = true
+		energy = clamp(energy, 0, 100000)
+		energy = 100000
 	else:
-		SPEED = clamp(SPEED, -20, 150)
-		ACCELERATION = 3000
-		DECELERATION = 10
-	if state_machine.get_current_node() == "speed_up" and Skill == true:
-		$SkillSprite. visible = true
-	else:
-		$SkillSprite. visible = false
+		energy = clamp(energy, 0, 100)
 		
 func listen_for_coins():
 	var coins = get_tree(). get_nodes_in_group("coin")
@@ -146,31 +139,25 @@ func check_energy():
 	$GUI/Tween. start()
 
 
-func listen_for_ramps():
-		var ramps = get_tree(). get_nodes_in_group("ramp")
-		for ramp in ramps:
-			ramp. connect("on_ramp", self, "ramp_entered")
-			ramp. connect("not_on_ramp", self, "ramp_exited")
-
-func ramp_entered():
-	on_ramp = true
-
-func ramp_exited():
-	on_ramp = false
 
 
-func listen_for_slow_items():
-		var slow_items = get_tree(). get_nodes_in_group("slow_items")
-		for slow_item in slow_items:
-			slow_item. connect("in_bush", self, "bush_entered")
-			slow_item. connect("not_in_bush", self, "bush_exited")
 
-func bush_entered():
-	print ("in_bush")
-	in_bush = true
+func _on_Area2D_area_entered(area):
+	if area.name.begins_with("Direction"):
+		$CharacterCamera.zoom.x *= -1
+	if area.name.begins_with("Portal"):
+		$CharacterCamera.zoom.y = -$CharacterCamera.zoom.y
+	if area.name.begins_with("Bush"):
+		in_bush = true
+	if area.name.begins_with("Ramp"):
+		on_ramp = true
+		
 
-func bush_exited():
-	in_bush = false
-
-
+func _on_Area2D_area_exited(area):
+	if area.name.begins_with("Bush"):
+		in_bush = false
+	if area.name.begins_with("Ramp"):
+		on_ramp = false
+		
+		
 

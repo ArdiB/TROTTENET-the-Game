@@ -33,7 +33,7 @@ func _on_Character_L_pressed():
 	$"/root/VarSaves".character = character
 
 func _on_Level_R_pressed():
-	if level < 2:
+	if level < 3:
 		level += 1
 	else:
 		level = 0
@@ -44,7 +44,7 @@ func _on_Level_L_pressed():
 	if level > 0:
 		level -= 1
 	else:
-		level = 2
+		level = 3
 	$Levels. frame = level
 	$"/root/VarSaves".level = level
 
@@ -63,21 +63,27 @@ func _transitioned():
 				"character": "res://Scenes/Players/Zilly.tscn"
 			}
 			if level == 0:
-				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Tutorial.tscn", properties)
 			if level == 1:
-				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
 			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 3:
 				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+			
 		if character == 1:
 			var properties = {
 				"character": "res://Scenes/Players/Happy.tscn"
 			}
 			if level == 0:
-				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Tutorial.tscn", properties)
 			if level == 1:
-				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
 			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 3:
 				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+				
 	if highscores_pressed == true:
 		SceneLoader.goto_scene("res://Scenes/Highscores.tscn")
 		

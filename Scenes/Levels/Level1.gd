@@ -5,9 +5,11 @@ var charactername
 var time = 0
 var character
 
+
 func _ready():
 	_load_character()
 	get_tree().paused = true
+	
 	
 func _process(_delta):
 
@@ -25,7 +27,7 @@ func _load_character():
 	var character_instance = character_scene.instance()
 	character_instance. position = $CharacterPosition.position
 	add_child(character_instance)
-	move_child(character_instance, 2)
+	move_child(character_instance, 5)
 	
 
 
@@ -40,15 +42,16 @@ func _on_Options_pressed():
 
 
 func _on_FinishLine_body_entered(body):
-	set_score()
-	
-	var finishscreen_path = "res://Scenes/FinishScreen.tscn"
-	var finishscreen_resource = load (finishscreen_path)
-	var finishscreen = finishscreen_resource.instance()
-	add_child(finishscreen)
-	get_tree().paused = true
+	if body.is_in_group("Character"):
+		set_score()
+		
+		var finishscreen_path = "res://Scenes/FinishScreen.tscn"
+		var finishscreen_resource = load (finishscreen_path)
+		var finishscreen = finishscreen_resource.instance()
+		add_child(finishscreen)
+		get_tree().paused = true
 
-func set_score():
+func set_score(): 
 	time = $CanvasLayer/Timer.text
 	$"/root/Highscores".time = time
 	var characterscore = get_tree().get_nodes_in_group("Character")
@@ -58,7 +61,6 @@ func set_score():
 	$"/root/Highscores".new_score = new_score
 	$"/root/Highscores".update_forest_score()
 	
-
-
+	
 
 	

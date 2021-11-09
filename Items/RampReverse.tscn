@@ -11,13 +11,14 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4.5, 3.58343 )
 texture = ExtResource( 1 )
+flip_h = true
 hframes = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 0.0110493, 0 )
-polygon = PoolVector2Array( 16.0313, -8.40625, 7.74888, -2.88949, -3.77863, 3.29093, -12.3895, 6.34641, -16.0423, 8.08594, 16.0126, 8.01304 )
+position = Vector2( 9.00443, 0 )
+polygon = PoolVector2Array( 13.4632, 6.54679, 1.12517, 2.19875, -8.53713, -3.41282, -15.9697, -7.94667, -16.0423, 8.08594, 16.0126, 8.01304 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 14.9993, -8.64256, -2.04751, -9.20661, -7.87603, -6.44903, -12.7645, -3.62878, -14.958, 0.00620461, -16.0277, 6.54585, -10.6963, 4.70662, -6.5, 3.0625, -1.92217, 1.1343, 3.21695, -1.49793, 10.3616, -5.50895 )
+polygon = PoolVector2Array( 13.58, -5.02083, 6.37981, -7.22818, -6.07335, -7.83518, -2.09694, -5.4196, 1.85999, -3.07625, 5.69658, -0.974014, 9.06017, 0.812891, 13.2121, 2.65235, 18.6779, 4.8597, 24.7219, 7.22473, 20.8327, -0.133118 )
