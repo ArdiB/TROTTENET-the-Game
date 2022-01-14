@@ -161,3 +161,17 @@ func _on_Area2D_area_exited(area):
 		
 		
 
+
+
+func _on_ghost_timer_timeout():
+	if state_machine.get_current_node() == "speed_up":
+		# first make a copy of the ghost object
+		var this_ghost = preload ("res://Scenes/Ghost.tscn").instance();
+		# give the ghost a parent
+		get_parent(). add_child(this_ghost);
+		get_parent(). move_child(this_ghost, 4);
+		this_ghost.position = global_position + Vector2(2, 7)
+		this_ghost.texture = $Sprite.texture
+		this_ghost.vframes = $Sprite.vframes
+		this_ghost.hframes = $Sprite.hframes
+		this_ghost.frame = $Sprite.frame

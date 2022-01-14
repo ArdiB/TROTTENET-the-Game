@@ -92,7 +92,6 @@ extents = Vector2( 2721.03, 10 )
 [node name="Level2" type="Node2D" groups=[
 "Level",
 ]]
-position = Vector2( 0, 2 )
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -167,7 +166,7 @@ centered = false
 offset = Vector2( 0, -325 )
 
 [node name="CharacterPosition" type="Position2D" parent="."]
-position = Vector2( 35.0164, -61.2493 )
+position = Vector2( 58, -20 )
 
 [node name="Items" type="Node2D" parent="."]
 

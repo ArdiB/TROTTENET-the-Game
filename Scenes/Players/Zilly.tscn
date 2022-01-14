@@ -257,6 +257,7 @@ material = SubResource( 1 )
 position = Vector2( 2, 7 )
 texture = ExtResource( 3 )
 hframes = 25
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -352,7 +353,6 @@ __meta__ = {
 visible = false
 position = Vector2( 63, 0 )
 frames = SubResource( 41 )
-frame = 3
 speed_scale = 2.5
 playing = true
 
@@ -363,10 +363,14 @@ playback/repeat = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2( -4.0625, 5.125 )
 shape = SubResource( 42 )
+
+[node name="ghost_timer" type="Timer" parent="Area2D"]
+wait_time = 0.15
+autostart = true
 
 [connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="Area2D/ghost_timer" to="." method="_on_ghost_timer_timeout"]
