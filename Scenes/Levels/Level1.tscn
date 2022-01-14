@@ -712,13 +712,13 @@ position = Vector2( 2271, -10 )
 [node name="Ramps" type="Node2D" parent="Items"]
 
 [node name="Ramp" parent="Items/Ramps" instance=ExtResource( 10 )]
-position = Vector2( 528, -24 )
+position = Vector2( 528, -23.5 )
 
 [node name="Ramp2" parent="Items/Ramps" instance=ExtResource( 10 )]
-position = Vector2( 1136, -88 )
+position = Vector2( 1136, -87.5 )
 
 [node name="Ramp3" parent="Items/Ramps" instance=ExtResource( 10 )]
-position = Vector2( 3695.6, 136 )
+position = Vector2( 3696, 136.5 )
 
 [node name="Bridges" type="Node2D" parent="Items"]
 
