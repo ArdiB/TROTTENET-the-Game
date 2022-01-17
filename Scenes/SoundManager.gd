@@ -6,13 +6,15 @@ func crash():
 		$Crash.play()
 	
 func speed_up():
-		$SpeedUp.play()
+	$SpeedUp.play()
 	
 func jump():
-		$Jump.play()
+	$Jump.play()
 	
 func countdown():
-		$Countdown.play()
+	$Countdown.play()
+func speed_boost():
+	$SpeedBoost.play()
 	
 func music1():
 		$Music1.play()

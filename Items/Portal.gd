@@ -1,7 +1,15 @@
 extends Area2D
 
+extends ColorRect
 
 
+func _ready():
+	material.duplicate()
+	adjustRect():
 
-func _on_Node2D_body_entered(body):
-	pass # Replace with function body.
+func adjustRect():
+	material.set_shader_param("rel_rect_size", get_canvas_transform().get_scale()*rect_size)
+		
+func _process(_delta):
+	adjustRect()
+

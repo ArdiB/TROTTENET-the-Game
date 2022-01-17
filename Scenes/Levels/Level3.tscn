@@ -281,7 +281,7 @@ margin_bottom = 28.0
 custom_fonts/font = SubResource( 23 )
 
 [node name="CharacterPosition" type="Position2D" parent="."]
-position = Vector2( -578.829, -20.4411 )
+position = Vector2( -514.41, -78.7253 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.294118, 0.294118, 0.443137, 1 )

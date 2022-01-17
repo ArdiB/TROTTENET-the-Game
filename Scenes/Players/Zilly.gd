@@ -5,13 +5,14 @@ const GRAVITY = 400
 const JUMP_POWER = 150
 const UP_VECTOR = Vector2(0, -1)
 
+export var SPEED = 0
 var charactername = "Zilly"
 var DECELERATION = 10
 var ACCELERATION = 3000
 var movement = Vector2() 
-var SPEED = 0
 var energy = 100
 var on_ramp = false
+var on_boost = false
 var in_bush = false
 var coin_value = 4
 var Skill = false
@@ -31,8 +32,11 @@ func _physics_process(delta):
 	movement.y += GRAVITY * delta
 	# Calculations movement
 	
+	if on_boost == true:
+		SPEED += delta * 800
+	
 	if in_bush == true and SPEED > 0:
-		SPEED -= delta * 100
+		SPEED -= delta * 80
 	
 	if SPEED + delta * -DECELERATION > 0:
 		SPEED -= delta * DECELERATION
@@ -92,7 +96,7 @@ func _physics_process(delta):
 	check_energy()
 	
 	coin_value = clamp(coin_value, 0, 4)
-	SPEED = clamp(SPEED, -20, 150)
+	SPEED = clamp(SPEED, -20, 200)
 	
 	#limitations
 	
@@ -145,12 +149,13 @@ func check_energy():
 func _on_Area2D_area_entered(area):
 	if area.name.begins_with("Direction"):
 		$CharacterCamera.zoom.x *= -1
-	if area.name.begins_with("Portal"):
-		$CharacterCamera.zoom.y = -$CharacterCamera.zoom.y
 	if area.name.begins_with("Bush"):
 		in_bush = true
 	if area.name.begins_with("Ramp"):
 		on_ramp = true
+	if area.name.begins_with("Speed"):
+		on_boost  = true
+		$"/root/SoundManager". speed_boost()
 		
 
 func _on_Area2D_area_exited(area):
@@ -158,18 +163,20 @@ func _on_Area2D_area_exited(area):
 		in_bush = false
 	if area.name.begins_with("Ramp"):
 		on_ramp = false
-		
+	if area.name.begins_with("Speed"):
+		on_boost  = false
 		
 
 
 
 func _on_ghost_timer_timeout():
-	if state_machine.get_current_node() == "speed_up":
+	#if state_machine.get_current_node() == "speed_up":
+	if on_boost == true and SPEED > 0:
 		# first make a copy of the ghost object
 		var this_ghost = preload ("res://Scenes/Ghost.tscn").instance();
 		# give the ghost a parent
 		get_parent(). add_child(this_ghost);
-		get_parent(). move_child(this_ghost, 4);
+		get_parent(). move_child(this_ghost, 5);
 		this_ghost.position = global_position + Vector2(2, 7)
 		this_ghost.texture = $Sprite.texture
 		this_ghost.vframes = $Sprite.vframes

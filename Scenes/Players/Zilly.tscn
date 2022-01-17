@@ -353,6 +353,7 @@ __meta__ = {
 visible = false
 position = Vector2( 63, 0 )
 frames = SubResource( 41 )
+frame = 1
 speed_scale = 2.5
 playing = true
 
@@ -360,17 +361,17 @@ playing = true
 repeat = true
 playback/repeat = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerCollision" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 position = Vector2( -4.0625, 5.125 )
 shape = SubResource( 42 )
 
-[node name="ghost_timer" type="Timer" parent="Area2D"]
+[node name="ghost_timer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
 
 [connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
-[connection signal="timeout" from="Area2D/ghost_timer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="area_entered" from="PlayerCollision" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="PlayerCollision" to="." method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="ghost_timer" to="." method="_on_ghost_timer_timeout"]

@@ -77,19 +77,25 @@ func _on_AsteroidTimer_timeout():
 	
 	
 
+func _on_SaveArea_area_entered(area):
+	if area.name.begins_with("Player"):
+		$"/root/TransitionScreen".transition()
 
 
-func _on_SaveArea_body_entered(body):
-	$"/root/TransitionScreen".transition()
+	
 	
 func _transitioned():
 	var characterposition = get_tree().get_nodes_in_group("Character")
 	for character in characterposition:
 		characterposition = character.position
 		character.position +=  Vector2(-150, -300)
+		character.SPEED = 0
 		
 	var cloud_path = "res://Items/SaveCloud.tscn"
 	var cloud_resource = load (cloud_path)
 	var cloud = cloud_resource.instance()
 	cloud.position = characterposition + Vector2(-150, -290)
 	add_child(cloud)
+
+
+

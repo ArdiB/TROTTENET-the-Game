@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform bool x_mirrored = false;
+uniform bool y_mirrored = false;
+
+
+void fragment() {
+	vec2 uv = SCREEN_UV;
+	
+	if (x_mirrored) {
+		uv.x = 1.0 - uv.x;
+	}
+	
+	if (y_mirrored) {
+		uv.y = 1.0 - uv.y;
+	}
+	
+	COLOR = texture(SCREEN_TEXTURE, uv);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/x_mirrored = true
+shader_param/y_mirrored = false
+
+[node name="Mirror" type="ColorRect"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
