@@ -31,7 +31,8 @@ code = "shader_type canvas_item;
 void vertex(){
 	VERTEX.y += sin(TIME*3.0) * 2.0;
 	
-}"
+}
+"
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
@@ -78,8 +79,7 @@ shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 6 )
-use_parent_material = true
 frames = SubResource( 11 )
 animation = "New Anim"
-frame = 2
+frame = 3
 playing = true

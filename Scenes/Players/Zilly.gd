@@ -151,6 +151,8 @@ func _on_Area2D_area_entered(area):
 		$CharacterCamera.zoom.x *= -1
 	if area.name.begins_with("Bush"):
 		in_bush = true
+	if area.name.begins_with("Portal"):
+		$CharacterCamera.zoom.y = -$CharacterCamera.zoom.y
 	if area.name.begins_with("Ramp"):
 		on_ramp = true
 	if area.name.begins_with("Speed"):
@@ -177,7 +179,7 @@ func _on_ghost_timer_timeout():
 		# give the ghost a parent
 		get_parent(). add_child(this_ghost);
 		get_parent(). move_child(this_ghost, 5);
-		this_ghost.position = global_position + Vector2(2, 7)
+		this_ghost.position = global_position + Vector2(7, 0)
 		this_ghost.texture = $Sprite.texture
 		this_ghost.vframes = $Sprite.vframes
 		this_ghost.hframes = $Sprite.hframes
