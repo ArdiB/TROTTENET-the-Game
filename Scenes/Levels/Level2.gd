@@ -4,12 +4,16 @@ var new_score
 var charactername
 var time = 0
 var character 
+var checkpoint1 = true
+var checkpoint2 = false
+var checkpoint3 = false
 
 
 func _ready():
 	_load_character()
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
 	get_tree().paused = true
+	camera_settings()
 	
 	
 func _process(_delta):
@@ -62,40 +66,57 @@ func set_score():
 	$"/root/Highscores".update_space_score()
 	
 
-
+#asteroids
 func _on_AsteroidTimer_timeout():
 	#spawn asteroid at characterposition + vector2
-	var randomnumber = [5, -25]
+	var randomnumber = [0, -30]
 	var characterposition = get_tree().get_nodes_in_group("Character")
 	for character in characterposition:
 		characterposition = character.position
 	var asteroid_path = "res://Items/Asteroid.tscn"
 	var asteroid_resource = load (asteroid_path)
 	var asteroid = asteroid_resource.instance()
-	asteroid. position = characterposition + Vector2(200, randomnumber[randi() % randomnumber.size()])
+	asteroid. position = characterposition + Vector2(400, randomnumber[randi() % randomnumber.size()])
 	add_child(asteroid)
-	
-	
+func _on_AsteroidActivator_area_entered(area):
+	if area.name.begins_with("Player"):
+		$Items/AsteroidTimer.start()
 
 func _on_SaveArea_area_entered(area):
 	if area.name.begins_with("Player"):
 		$"/root/TransitionScreen".transition()
-
-
-	
-	
 func _transitioned():
 	var characterposition = get_tree().get_nodes_in_group("Character")
 	for character in characterposition:
 		characterposition = character.position
-		character.position +=  Vector2(-150, -300)
+		if checkpoint1 == true:
+			character.position = $Checkpoints/Checkpoint1.position
+		if checkpoint2 == true:
+			character.position = $Checkpoints/Checkpoint2.position
+		if checkpoint3 == true:
+			character.position = $Checkpoints/Checkpoint3.position
+		#character.position +=  Vector2(-150, -300)
 		character.SPEED = 0
 		
-	var cloud_path = "res://Items/SaveCloud.tscn"
-	var cloud_resource = load (cloud_path)
-	var cloud = cloud_resource.instance()
-	cloud.position = characterposition + Vector2(-150, -290)
-	add_child(cloud)
+		var cloud_path = "res://Items/SaveCloud.tscn"
+		var cloud_resource = load (cloud_path)
+		var cloud = cloud_resource.instance()
+		cloud.position = character.position + Vector2(0, 10)
+		add_child(cloud)
+	
+	
+func camera_settings():
+	var settings = get_tree(). get_nodes_in_group("Camera")
+	for Camera in settings:
+		Camera.limit_top = -100000
 
 
-
+#checkpoints
+func _on_CheckArea2_area_entered(area):
+	if area.name.begins_with("Player"):
+		checkpoint1 = false
+		checkpoint2 = true
+func _on_CheckArea3_area_entered(area):
+	if area.name.begins_with("Player"):
+		checkpoint2 = false
+		checkpoint3 = true

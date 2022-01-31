@@ -5,10 +5,12 @@ const GRAVITY = 400
 const JUMP_POWER = 150
 const UP_VECTOR = Vector2(0, -1)
 
-export var SPEED = 0
+export var END = 0.1
+export var STR = 3000
+export var SPE = 200
+var SPEED = 0
 var charactername = "Zilly"
 var DECELERATION = 10
-var ACCELERATION = 3000
 var movement = Vector2() 
 var energy = 100
 var on_ramp = false
@@ -24,7 +26,6 @@ onready var state_machine = $AnimationTree. get("parameters/playback")
 
 func _ready():
 	listen_for_coins()
-	
 	
 	
 func _physics_process(delta):
@@ -43,7 +44,7 @@ func _physics_process(delta):
 		#Deceleration over time.
 	
 	if energy < 100:
-		energy += 0.1
+		energy += END
 		#Energy regeneration over time
 		
 		
@@ -59,7 +60,7 @@ func _physics_process(delta):
 		state_machine.travel("speed_up")
 		$"/root/SoundManager".speed_up()
 		energy -= 25
-		SPEED += delta * ACCELERATION
+		SPEED += delta * STR
 		#speed up
 		
 	if Input.is_action_pressed("left") and SPEED > 1:
@@ -68,12 +69,13 @@ func _physics_process(delta):
 		#stop
 	
 	if Input.is_action_pressed("left") and SPEED < 1:
-		SPEED = -ACCELERATION/150
+		SPEED = -STR/150
 	if !Input.is_action_pressed("left") and SPEED < 0:
 		SPEED = 0
 		#back
 		
-	if Input. is_action_just_pressed("jump") and is_on_floor() and state_machine.get_current_node() != "speed_up":
+	if Input. is_action_just_pressed("jump") and is_on_floor():
+		 #and state_machine.get_current_node() != "speed_up":
 		$"/root/SoundManager".jump()
 		movement.y = -JUMP_POWER
 		#jump
@@ -96,7 +98,7 @@ func _physics_process(delta):
 	check_energy()
 	
 	coin_value = clamp(coin_value, 0, 4)
-	SPEED = clamp(SPEED, -20, 200)
+	SPEED = clamp(SPEED, -20, SPE)
 	
 	#limitations
 	

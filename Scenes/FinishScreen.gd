@@ -18,5 +18,9 @@ func _on_Menu_pressed():
 	TransitionScreen.transition()
 
 func _on_Highscores_pressed():
-	highscores_pressed = true
-	TransitionScreen.transition()
+	var highscores_path = "res://Scenes/Highscores.tscn" 
+	var highscores_resource = load(highscores_path)
+	var highscores = highscores_resource.instance()
+	get_parent().add_child(highscores)
+	self.queue_free()
+	

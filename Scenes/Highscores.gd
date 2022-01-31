@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 onready var background = get_node("Background")
 func _ready():
@@ -9,22 +9,27 @@ func _on_Forest_pressed():
 	background.frame = 0
 	$ForestScores.visible = true
 	$SpaceScores.visible = false
-
+	$CityScores.visible =  false
 func _on_Space_pressed():
 	background.frame = 1
 	$ForestScores.visible = false
 	$SpaceScores.visible = true
+	$CityScores.visible =  false
 func _on_City_pressed():
 	background.frame = 2
+	$ForestScores.visible = false
+	$SpaceScores.visible = false
+	$CityScores.visible =  true
 
-func _on_InProgress_pressed():
-	background.frame = 3
 
+func _on_Close_pressed():
+	if get_parent().name.begins_with("Selection"):
+		self. queue_free()
+	if get_parent().name.begins_with("Level"):
+		TransitionScreen.transition()
 
-func _on_Menu_pressed():
-	TransitionScreen.transition()
-	
 func _transitioned():
+	get_tree().paused = false
 	SceneLoader.goto_scene("res://Scenes/SelectionMenu.tscn")
 
 func update_labels():
@@ -49,3 +54,16 @@ func update_labels():
 	$SpaceScores/SpaceScore03.text = str("3.    ", $"/root/Highscores".space_score_03)
 	if $"/root/Highscores".space_score_03 == str (1000):
 		$SpaceScores/SpaceScore03.text = str("-")
+		
+	#city_level_labels
+	$CityScores/CityScore01.text = str("1.    ", $"/root/Highscores".city_score_01)
+	if $"/root/Highscores".city_score_01 == str (1000):
+		$CityScores/CityScore01.text = str("-")
+	$CityScores/CityScore02.text = str("2.    ", $"/root/Highscores".city_score_02)
+	if $"/root/Highscores".city_score_02 == str (1000):
+		$CityScores/CityScore02.text = str("-")
+	$CityScores/CityScore03.text = str("3.    ", $"/root/Highscores".city_score_03)
+	if $"/root/Highscores".city_score_03 == str (1000):
+		$CityScores/CityScore03.text = str("-")
+
+

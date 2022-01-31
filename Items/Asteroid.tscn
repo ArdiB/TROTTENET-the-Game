@@ -93,6 +93,7 @@ script = ExtResource( 3 )
 
 [node name="Rotation" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
+frame = 2
 playing = true
 
 [node name="Explosion" type="AnimatedSprite" parent="."]

@@ -81,5 +81,5 @@ shape = SubResource( 4 )
 material = SubResource( 6 )
 frames = SubResource( 11 )
 animation = "New Anim"
-frame = 3
+frame = 1
 playing = true

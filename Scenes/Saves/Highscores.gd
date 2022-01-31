@@ -12,6 +12,10 @@ var space_score_01 = str(1000)
 var space_score_02 = str(1000)
 var space_score_03 = str(1000)
 
+var city_score_01 = str(1000)
+var city_score_02 = str(1000)
+var city_score_03 = str(1000)
+
 var space_highscore = 0
 
 
@@ -46,4 +50,18 @@ func update_space_score():
 		return
 	if new_score < space_score_03:
 		space_score_03 = new_score
+		return
+		
+func update_city_score():
+	if new_score < city_score_01:
+		city_score_03 = city_score_02
+		city_score_02 = city_score_01
+		city_score_01 = new_score
+		return
+	if new_score < city_score_02:
+		city_score_03 = city_score_02
+		city_score_02 = new_score
+		return
+	if new_score < city_score_03:
+		city_score_03 = new_score
 		return

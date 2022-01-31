@@ -4,8 +4,10 @@ var new_score
 var charactername
 var time = 0
 var character
+var goal = 0
 
 func _ready():
+	listen_for_coins()
 	_load_character()
 	get_tree().paused = true
 	camera_settings()
@@ -57,26 +59,42 @@ func set_score():
 		charactername = character.charactername
 	new_score = str(time,"  -  ",charactername )
 	$"/root/Highscores".new_score = new_score
-	$"/root/Highscores".update_forest_score()
+	$"/root/Highscores".update_city_score()
 	
 
-
-func _on_test_area_entered(area):
-	$Items.scale.x = -1
-	
-	
-	
 func camera_settings():
 	var settings = get_tree(). get_nodes_in_group("Camera")
 	for Camera in settings:
-		Camera.limit_left = -10000
+		Camera.limit_left = -11000
+		Camera.limit_top = -400
 	
 
 
 func _on_DirectionSwitch_body_entered(body):
 	$Mirror.scale.x *= -1
-	$ParralaxBackground.scale.x *= -1
 	
 	var characterposition = get_tree(). get_nodes_in_group("Character")
 	for Character in characterposition:
 		Character.position = $CharacterPosition.position
+		
+		
+		
+		
+func listen_for_coins():
+	var coins = get_tree(). get_nodes_in_group("coin")
+	for coin in coins:
+		coin.connect("on_collect", self, "on_coin_collected")
+		
+func on_coin_collected(value):
+	goal += 1
+	$CanvasLayer/GoalCounter.text = str(goal, "/", 10)
+	if goal == 10:
+		set_score()
+			
+		var finishscreen_path = "res://Scenes/FinishScreen.tscn"
+		var finishscreen_resource = load (finishscreen_path)
+		var finishscreen = finishscreen_resource.instance()
+		add_child(finishscreen)
+		get_tree().paused = true
+	
+		
