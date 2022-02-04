@@ -11,9 +11,12 @@ func _ready():
 
 func _process(delta):
 	if is_on_wall():
+		$CollisionShape2D.disabled = true
 		$Explosion.visible = true
 		$Explosion.playing = true
 		$Rotation.visible = false
+		$AudioStreamPlayer2D.playing = true
+
 	
 	move_and_slide(movement, Vector2(0, 0))
 

@@ -7,12 +7,17 @@ var character
 var goal = 0
 
 func _ready():
+	$"/root/TransitionScreen".connect("transitioned2", self, ("_transitioned"))
 	listen_for_coins()
 	_load_character()
 	get_tree().paused = true
 	camera_settings()
 	
 func _process(_delta):
+	if Input. is_action_just_pressed("ACCEPT"):
+		$test.current = true
+	
+
 	check_key_input()
 	
 func check_key_input():
@@ -71,14 +76,14 @@ func camera_settings():
 
 
 func _on_DirectionSwitch_body_entered(body):
-	$Mirror.scale.x *= -1
-	
 	var characterposition = get_tree(). get_nodes_in_group("Character")
 	for Character in characterposition:
 		Character.position = $CharacterPosition.position
+	$Mirror.scale.x *= -1
 		
-		
-		
+	#$"/root/TransitionScreen".transition()
+#func _transitioned():
+
 		
 func listen_for_coins():
 	var coins = get_tree(). get_nodes_in_group("coin")

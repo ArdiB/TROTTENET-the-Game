@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character - Character_Zilly.png-8969e5bfcf30f2b6572909da1879c611.stex"
+path="res://.import/TROTTENET - Character_Tschini.png-3c0a1eb21cc866c375d2194e915b60ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Character - Character_Zilly.png"
-dest_files=[ "res://.import/Character - Character_Zilly.png-8969e5bfcf30f2b6572909da1879c611.stex" ]
+source_file="res://Assets/Characters/TROTTENET - Character_Tschini.png"
+dest_files=[ "res://.import/TROTTENET - Character_Tschini.png-3c0a1eb21cc866c375d2194e915b60ca.stex" ]
 
 [params]
 

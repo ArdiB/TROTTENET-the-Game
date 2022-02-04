@@ -12,7 +12,7 @@ func _ready():
 
 func _on_END_mouse_entered():
 	$Label.rect_position = Vector2(0,8)
-	$Label.text = str ("ENDURANCE:\nwie schnell d´ Energie\nregeneriert")
+	$Label.text = str ("ENERGY:\nwie schnell d´ Energie\nregeneriert")
 	$Label.visible = true
 	change_background()
 	$Background.visible = true
@@ -38,7 +38,7 @@ func _on_STR_mouse_exited():
 
 func _on_SPE_mouse_entered():
 	$Label.rect_position = Vector2(0,34)
-	$Label.text = str ("SPEED:\nmaximali Gschindigkeit")
+	$Label.text = str ("SPEED:\nmaximali Gschwindigkeit")
 	$Label.visible = true
 	change_background()
 	$Background.visible = true

@@ -17,7 +17,7 @@ func _ready():
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
 
 func _on_Character_R_pressed():
-	if character < 1:
+	if character < 8:
 		character += 1
 	else:
 		character =0
@@ -28,7 +28,7 @@ func _on_Character_L_pressed():
 	if character > 0:
 		character -= 1
 	else:
-		character = 1
+		character = 8
 	$Characters. frame = character
 	$"/root/VarSaves".character = character
 

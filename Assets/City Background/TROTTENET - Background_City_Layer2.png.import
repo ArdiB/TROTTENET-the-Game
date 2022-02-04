@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TROTTENET - Background_City_Layer2.png-8581c13d9d323009792eb7c20615e32f.stex"
+path="res://.import/TROTTENET - Background_City_Layer2.png-926e05ecf1d9a986365f6e8670b05cf5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TROTTENET - Background_City_Layer2.png"
-dest_files=[ "res://.import/TROTTENET - Background_City_Layer2.png-8581c13d9d323009792eb7c20615e32f.stex" ]
+source_file="res://Assets/City Background/TROTTENET - Background_City_Layer2.png"
+dest_files=[ "res://.import/TROTTENET - Background_City_Layer2.png-926e05ecf1d9a986365f6e8670b05cf5.stex" ]
 
 [params]
 

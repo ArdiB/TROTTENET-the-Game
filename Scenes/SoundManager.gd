@@ -18,3 +18,6 @@ func speed_boost():
 	
 func music1():
 		$Music1.play()
+
+
+

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TROTTENET - Background_City_Layer1.png-8c2000a1e99f0d9eb53da4c8b3452389.stex"
+path="res://.import/TROTTENET - Character_Tesa.png-43f9dce3932c13c4f63662ce270d310f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TROTTENET - Background_City_Layer1.png"
-dest_files=[ "res://.import/TROTTENET - Background_City_Layer1.png-8c2000a1e99f0d9eb53da4c8b3452389.stex" ]
+source_file="res://Assets/Characters/TROTTENET - Character_Tesa.png"
+dest_files=[ "res://.import/TROTTENET - Character_Tesa.png-43f9dce3932c13c4f63662ce270d310f.stex" ]
 
 [params]
 
