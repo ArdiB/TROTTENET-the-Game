@@ -788,7 +788,7 @@ position = Vector2( 4219, 24 )
 position = Vector2( 4315, 24 )
 
 [node name="CharacterPosition" type="Position2D" parent="."]
-position = Vector2( 58, -20 )
+position = Vector2( 58, 0 )
 
 [connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_Options_pressed"]
 [connection signal="body_entered" from="Items/FinishLine" to="." method="_on_FinishLine_body_entered"]

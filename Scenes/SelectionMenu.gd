@@ -100,5 +100,5 @@ func _on_Highscores_pressed():
 	var highscores_resource = load(highscores_path)
 	var highscores = highscores_resource.instance()
 	add_child(highscores)
-	
+	get_tree().paused = true
 

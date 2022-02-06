@@ -4,8 +4,9 @@
 [ext_resource path="res://Assets/TROTTENET - Light_Lantern.png" type="Texture" id=2]
 
 [node name="Lantern" type="Light2D"]
+position = Vector2( 0, -40 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2.5 )
+position = Vector2( 1, -2 )
 texture = ExtResource( 1 )

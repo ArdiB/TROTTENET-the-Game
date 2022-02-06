@@ -24,6 +24,7 @@ func _on_City_pressed():
 
 func _on_Close_pressed():
 	if get_parent().name.begins_with("Selection"):
+		get_tree().paused = false
 		self. queue_free()
 	if get_parent().name.begins_with("Level"):
 		TransitionScreen.transition()

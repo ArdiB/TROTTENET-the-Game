@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var SPEED = -40
+export var SPEED = -60
 
 
 var movement = Vector2(SPEED, 0)
