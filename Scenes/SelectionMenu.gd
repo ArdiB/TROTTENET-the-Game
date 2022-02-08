@@ -10,6 +10,7 @@ onready var zilly = preload("res://Scenes/Players/Zilly.tscn")
 onready var happy = preload("res://Scenes/Players/Happy.tscn")
 
 func _ready():
+	$"/root/SoundManager".maintheme()
 	character = $"/root/VarSaves".character
 	$Characters.frame = character
 	level = $"/root/VarSaves".level
