@@ -64,3 +64,7 @@ func set_score():
 	
 
 	
+
+
+func _on_Countdown_start():
+	$"/root/SoundManager".level1()

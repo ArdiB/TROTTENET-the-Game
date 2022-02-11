@@ -1,0 +1,422 @@
+[gd_scene load_steps=60 format=2]
+
+[ext_resource path="res://Assets/GUI/TROTTENET - Skill_Progress.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GUI/Energy Bar_Process - GUI.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Characters/TROTTENET - Character_Lego.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/Energy Bar_Over - GUI.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GUI/Energy Bar_Under - GUI.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/TROTTENET - Skill_Animation.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Characters/TROTTENET - Skill.png" type="Texture" id=7]
+[ext_resource path="res://Items/CameraShake.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Players/Zilly.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Characters/TROTTENET - CharacterDust.png" type="Texture" id=10]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 16, 12 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 10 )
+region = Rect2( 16, 0, 16, 12 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 16, 12 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 10 )
+region = Rect2( 48, 0, 16, 12 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 10 )
+region = Rect2( 64, 0, 16, 12 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 10 )
+region = Rect2( 80, 0, 16, 12 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 10.5031
+height = 10.0
+
+[sub_resource type="Animation" id=10]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 18 ]
+}
+
+[sub_resource type="Animation" id=11]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20, 24 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 7, 11 ]
+}
+
+[sub_resource type="Animation" id=13]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3, 7 ]
+}
+
+[sub_resource type="Animation" id=15]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 19 ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 11, 18 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "air"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "back"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "drive"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "speed_up"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "stop"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "trick"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+advance_condition = "jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+advance_condition = "moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+advance_condition = "jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+advance_condition = "moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+advance_condition = "back"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+advance_condition = "not_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+advance_condition = "back"
+
+[sub_resource type="AnimationNodeStateMachine" id=42]
+states/air/node = SubResource( 17 )
+states/air/position = Vector2( 602, 84.344 )
+states/back/node = SubResource( 18 )
+states/back/position = Vector2( 302, 421.284 )
+states/drive/node = SubResource( 19 )
+states/drive/position = Vector2( 906, 230.344 )
+states/idle/node = SubResource( 20 )
+states/idle/position = Vector2( 163, 189.344 )
+states/speed_up/node = SubResource( 21 )
+states/speed_up/position = Vector2( 586, 174.344 )
+states/stop/node = SubResource( 22 )
+states/stop/position = Vector2( 594, 304.344 )
+states/trick/node = SubResource( 23 )
+states/trick/position = Vector2( 800, -3.65601 )
+transitions = [ "idle", "speed_up", SubResource( 24 ), "speed_up", "drive", SubResource( 25 ), "drive", "air", SubResource( 26 ), "air", "drive", SubResource( 27 ), "idle", "air", SubResource( 28 ), "air", "idle", SubResource( 29 ), "drive", "stop", SubResource( 30 ), "stop", "drive", SubResource( 31 ), "drive", "idle", SubResource( 32 ), "stop", "idle", SubResource( 33 ), "drive", "speed_up", SubResource( 34 ), "idle", "stop", SubResource( 35 ), "drive", "trick", SubResource( 36 ), "trick", "air", SubResource( 37 ), "trick", "drive", SubResource( 38 ), "idle", "back", SubResource( 39 ), "back", "idle", SubResource( 40 ), "stop", "back", SubResource( 41 ) ]
+start_node = "idle"
+graph_offset = Vector2( -259, 100.284 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=43]
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 41, 23 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 6 )
+region = Rect2( 41, 0, 41, 23 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 6 )
+region = Rect2( 82, 0, 41, 23 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 6 )
+region = Rect2( 123, 0, 41, 23 )
+
+[sub_resource type="SpriteFrames" id=48]
+animations = [ {
+"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=49]
+radius = 11.375
+height = 11.0
+
+[node name="Lego" type="KinematicBody2D" groups=[
+"Character",
+]]
+collision/safe_margin = 0.5
+script = ExtResource( 9 )
+charactername = "Lego"
+ENG_points = 1
+STR_points = 2
+SPE_points = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 7, -13 )
+texture = ExtResource( 3 )
+hframes = 25
+
+[node name="Dust" type="AnimatedSprite" parent="Sprite"]
+position = Vector2( -16, 7 )
+frames = SubResource( 8 )
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -15.5 )
+shape = SubResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/air = SubResource( 10 )
+anims/back = SubResource( 11 )
+anims/drive = SubResource( 12 )
+anims/idle = SubResource( 13 )
+anims/speed_up = SubResource( 14 )
+anims/stop = SubResource( 15 )
+anims/trick = SubResource( 16 )
+
+[node name="CharacterCamera" type="Camera2D" parent="." groups=[
+"Camera",
+]]
+position = Vector2( 0, -80 )
+current = true
+zoom = Vector2( 2, 2 )
+process_mode = 0
+limit_left = 0
+limit_top = -320
+editor_draw_limits = true
+
+[node name="CameraShake" parent="CharacterCamera" instance=ExtResource( 8 )]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 42 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 43 )
+parameters/conditions/back = false
+parameters/conditions/jumping = false
+parameters/conditions/moving = false
+parameters/conditions/not_moving = false
+
+[node name="SkillTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="SkillProgress" type="TextureProgress" parent="GUI"]
+margin_left = 6.05414
+margin_top = 6.42296
+margin_right = 46.0541
+margin_bottom = 46.423
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 1 )
+fill_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energy under" type="TextureProgress" parent="GUI"]
+anchor_left = 0.617021
+anchor_top = -20.625
+anchor_right = 0.617021
+anchor_bottom = -20.625
+margin_left = -157.447
+margin_top = 3718.5
+margin_right = -110.447
+margin_bottom = 3726.5
+value = 100.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0.494118, 0.494118, 0.494118, 1 )
+tint_progress = Color( 0.964706, 0.458824, 0.0313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energy over " type="TextureProgress" parent="GUI"]
+anchor_left = 0.617021
+anchor_top = -20.625
+anchor_right = 0.617021
+anchor_bottom = -20.625
+margin_left = -157.447
+margin_top = 3718.5
+margin_right = -110.447
+margin_bottom = 3726.5
+value = 100.0
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkillSprite" type="AnimatedSprite" parent="GUI"]
+visible = false
+position = Vector2( 63, 0 )
+frames = SubResource( 48 )
+frame = 1
+speed_scale = 2.5
+playing = true
+
+[node name="Tween" type="Tween" parent="GUI"]
+repeat = true
+playback/repeat = true
+
+[node name="PlayerCollision" type="Area2D" parent="."]
+position = Vector2( 0, -15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+visible = false
+position = Vector2( 0, -0.5 )
+shape = SubResource( 49 )
+
+[node name="ghost_timer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[connection signal="animation_finished" from="Sprite/Dust" to="." method="_on_Dust_animation_finished"]
+[connection signal="timeout" from="SkillTimer" to="." method="_on_SkillTimer_timeout"]
+[connection signal="area_entered" from="PlayerCollision" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="PlayerCollision" to="." method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="ghost_timer" to="." method="_on_ghost_timer_timeout"]

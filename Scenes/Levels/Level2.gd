@@ -120,3 +120,6 @@ func _on_CheckArea3_area_entered(area):
 	if area.name.begins_with("Player"):
 		checkpoint2 = false
 		checkpoint3 = true
+
+
+

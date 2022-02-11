@@ -6,13 +6,16 @@ const GRAVITY = 400
 const JUMP_POWER = 150
 const UP_VECTOR = Vector2(0, -1)
 
-export var ENG = 0.1
-export var STR = 3000
-export var SPE = 200
+export var charactername = "Charactername"
+export var ENG_points = 0
+export var STR_points = 0
+export var SPE_points = 0
 
+var ENG = 0.05 + ENG_points*0.05
+var STR = 2500 + STR_points*250
+var SPE = 150 + SPE_points*25
 var SPEED = 0
 var DECELERATION = 10
-var charactername = "Zilly"
 var movement = Vector2() 
 var energy = 100
 var on_ramp = false
@@ -28,6 +31,9 @@ onready var state_machine = $AnimationTree. get("parameters/playback")
 
 
 func _ready():
+	ENG = 0.05 + ENG_points*0.05
+	STR = 2500 + STR_points*250
+	SPE = 150 + SPE_points*25 
 	$"/root/TransitionScreen".connect("transitioned", self, ("_transitioned"))
 	connect_coins()
 
@@ -95,7 +101,7 @@ func movement(delta):
 		SPEED -= 100 * delta
 		state_machine.travel("stop")
 	if Input.is_action_pressed("left") and SPEED < 1:
-		SPEED = -STR/150
+		SPEED = -20
 	if !Input.is_action_pressed("left") and SPEED < 0:
 		SPEED = 0
 
@@ -139,7 +145,7 @@ func movement_switched(delta):
 		SPEED += 100 * delta
 		state_machine.travel("stop")
 	if Input.is_action_pressed("left") and SPEED > -1:
-		SPEED = STR/150
+		SPEED = 20
 	if !Input.is_action_pressed("left") and SPEED > 0:
 		SPEED = 0
 

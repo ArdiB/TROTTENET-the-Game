@@ -4,7 +4,6 @@ extends Control
 var character = 0
 var level = 0
 var start_pressed = false
-var highscores_pressed = false
 
 onready var zilly = preload("res://Scenes/Players/Zilly.tscn")
 onready var happy = preload("res://Scenes/Players/Happy.tscn")
@@ -58,6 +57,7 @@ func _on_Start_pressed():
 	$"/root/TransitionScreen".transition()
 	
 func _transitioned():
+	$"/root/SoundManager".maintheme_stop()
 	if start_pressed == true:
 		if character == 0:
 			var properties = {
@@ -83,11 +83,100 @@ func _transitioned():
 				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
 			if level == 2:
 				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+		if character == 2:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Fanta.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+		if character == 3:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Spirou.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
 				
-	if highscores_pressed == true:
-		SceneLoader.goto_scene("res://Scenes/Highscores.tscn")
-		
-				
+		if character == 4:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Lego.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+		if character == 5:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Pompelmo.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+		if character == 6:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Tesa.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+		if character == 7:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Chaplin.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+		if character == 8:
+			#return
+			var properties = {
+				"character": "res://Scenes/Players/Tschini.tscn"
+			}
+
+			if level == 0:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level1.tscn", properties)
+			if level == 1:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level2.tscn", properties)
+			if level == 2:
+				SceneLoader.goto_scene("res://Scenes/Levels/Level3.tscn", properties)
+
+
+
 func _on_Options_pressed():
 	var options_path = "res://Scenes/OptionsMenu.tscn"
 	var options_resource = load(options_path)

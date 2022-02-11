@@ -284,12 +284,17 @@ height = 10.125
 ]]
 collision/safe_margin = 0.5
 script = ExtResource( 9 )
+charactername = "Zilly"
+ENG_points = 2
+STR_points = 2
+SPE_points = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 7, -13 )
 texture = ExtResource( 3 )
 hframes = 25
+frame = 1
 
 [node name="Dust" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( -16, 7 )

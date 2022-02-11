@@ -656,4 +656,5 @@ position = Vector2( -1072, -64 )
 position = Vector2( 1072, -64 )
 scale = Vector2( -1, 1 )
 
+[connection signal="start" from="CanvasLayer/Countdown" to="." method="_on_Countdown_start"]
 [connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_Options_pressed"]

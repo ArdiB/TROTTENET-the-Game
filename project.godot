@@ -17,6 +17,7 @@ _global_script_class_icons={
 config/name="TROTTENET - the game "
 run/main_scene="res://Scenes/Titlescreen.tscn"
 config/icon="res://Assets/Logo.png"
+config/macos_native_icon="res://Assets/IOS ICON.icns"
 config/windows_native_icon="res://Assets/WIN ICON.ico"
 
 [autoload]

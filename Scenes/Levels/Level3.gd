@@ -94,3 +94,7 @@ func on_coin_collected(value):
 		get_tree().paused = true
 	
 		
+
+
+func _on_Countdown_start():
+	$"/root/SoundManager".level3()
