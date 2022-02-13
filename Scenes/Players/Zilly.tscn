@@ -396,6 +396,7 @@ __meta__ = {
 visible = false
 position = Vector2( 63, 0 )
 frames = SubResource( 48 )
+frame = 2
 speed_scale = 2.5
 playing = true
 

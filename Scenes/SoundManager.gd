@@ -3,6 +3,7 @@ extends Node2D
 
 func maintheme():
 	$Level1.playing = false
+	$Level2.playing = false
 	$Level3.playing = false
 	if $Maintheme.playing == false:
 		$Maintheme.play()
@@ -34,6 +35,8 @@ func speed_boost():
 func level1():
 	$Level1.play()
 
+func level2():
+	$Level2.play()
 
 func level3():
 	$Level3.play()

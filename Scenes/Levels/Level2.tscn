@@ -97,7 +97,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 12, 0, 12 )
 2/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 2721.03, 10 )
+extents = Vector2( 3204.36, 10 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1.6424, 614.858 )
@@ -187,6 +187,9 @@ wait_time = 3.0
 [node name="Coin" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 2084.24, -334.357 )
 
+[node name="Coin3" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 2747.96, -142.814 )
+
 [node name="Coin2" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 1529.76, -125.815 )
 
@@ -195,6 +198,15 @@ position = Vector2( 1759.61, -1.98029 )
 
 [node name="Coin4" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 770.872, -205.194 )
+
+[node name="Coin6" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 868.872, -12.194 )
+
+[node name="Coin7" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 1829.29, -349.908 )
+
+[node name="Coin8" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 1065.7, -284.781 )
 
 [node name="SpeedBoost" parent="Items" instance=ExtResource( 9 )]
 position = Vector2( 296.567, -0.0494385 )
@@ -300,6 +312,7 @@ shape = SubResource( 8 )
 position = Vector2( 2054.2, -527.172 )
 shape = SubResource( 8 )
 
+[connection signal="start" from="CanvasLayer/Countdown" to="." method="_on_Countdown_start"]
 [connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_Options_pressed"]
 [connection signal="timeout" from="Items/AsteroidTimer" to="." method="_on_AsteroidTimer_timeout"]
 [connection signal="body_entered" from="Items/FinishLine" to="." method="_on_FinishLine_body_entered"]

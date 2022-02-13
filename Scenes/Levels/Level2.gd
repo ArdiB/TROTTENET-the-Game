@@ -69,7 +69,7 @@ func set_score():
 #asteroids
 func _on_AsteroidTimer_timeout():
 	#spawn asteroid at characterposition + vector2
-	var randomnumber = [-13, -43]
+	var randomnumber = [-13, -48]
 	var characterposition = get_tree().get_nodes_in_group("Character")
 	for character in characterposition:
 		characterposition = character.position
@@ -123,3 +123,7 @@ func _on_CheckArea3_area_entered(area):
 
 
 
+
+
+func _on_Countdown_start():
+	$"/root/SoundManager".level2()
