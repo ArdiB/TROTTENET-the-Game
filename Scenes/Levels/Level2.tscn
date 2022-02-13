@@ -102,9 +102,7 @@ extents = Vector2( 3204.36, 10 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1.6424, 614.858 )
 
-[node name="Level2" type="Node2D" groups=[
-"Level",
-]]
+[node name="Level2" type="Node2D" groups=["Level"]]
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -190,6 +188,9 @@ position = Vector2( 2084.24, -334.357 )
 [node name="Coin3" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 2747.96, -142.814 )
 
+[node name="Coin9" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 3740.22, -275.676 )
+
 [node name="Coin2" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 1529.76, -125.815 )
 
@@ -203,10 +204,10 @@ position = Vector2( 770.872, -205.194 )
 position = Vector2( 868.872, -12.194 )
 
 [node name="Coin7" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 1829.29, -349.908 )
+position = Vector2( 1829.29, -452.47 )
 
 [node name="Coin8" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 1065.7, -284.781 )
+position = Vector2( 1065.7, -366.739 )
 
 [node name="SpeedBoost" parent="Items" instance=ExtResource( 9 )]
 position = Vector2( 296.567, -0.0494385 )
