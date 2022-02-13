@@ -279,9 +279,7 @@ animations = [ {
 radius = 11.375
 height = 11.0
 
-[node name="Tschini" type="KinematicBody2D" groups=[
-"Character",
-]]
+[node name="Tschini" type="KinematicBody2D" groups=["Character"]]
 collision/safe_margin = 0.5
 script = ExtResource( 9 )
 charactername = "Tschini"
@@ -294,7 +292,6 @@ material = SubResource( 1 )
 position = Vector2( 7, -13 )
 texture = ExtResource( 3 )
 hframes = 25
-frame = 1
 
 [node name="Dust" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( -16, 7 )
@@ -314,9 +311,7 @@ anims/speed_up = SubResource( 14 )
 anims/stop = SubResource( 15 )
 anims/trick = SubResource( 16 )
 
-[node name="CharacterCamera" type="Camera2D" parent="." groups=[
-"Camera",
-]]
+[node name="CharacterCamera" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2( 0, -80 )
 current = true
 zoom = Vector2( 2, 2 )
@@ -394,9 +389,9 @@ __meta__ = {
 
 [node name="SkillSprite" type="AnimatedSprite" parent="GUI"]
 visible = false
-position = Vector2( 63, 0 )
+position = Vector2( 64, 1 )
 frames = SubResource( 48 )
-frame = 1
+frame = 3
 speed_scale = 2.5
 playing = true
 
