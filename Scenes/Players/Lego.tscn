@@ -292,7 +292,6 @@ material = SubResource( 1 )
 position = Vector2( 7, -13 )
 texture = ExtResource( 3 )
 hframes = 25
-frame = 1
 
 [node name="Dust" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( -16, 7 )
@@ -392,7 +391,6 @@ __meta__ = {
 visible = false
 position = Vector2( 64, 1 )
 frames = SubResource( 48 )
-frame = 3
 speed_scale = 2.5
 playing = true
 

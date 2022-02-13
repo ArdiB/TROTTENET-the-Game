@@ -102,7 +102,9 @@ extents = Vector2( 3204.36, 10 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1.6424, 614.858 )
 
-[node name="Level2" type="Node2D" groups=["Level"]]
+[node name="Level2" type="Node2D" groups=[
+"Level",
+]]
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -292,6 +292,7 @@ material = SubResource( 1 )
 position = Vector2( 7, -15 )
 texture = ExtResource( 3 )
 hframes = 25
+frame = 1
 
 [node name="Dust" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( -16, 7 )
